@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lessons room 実のなる木 | 岐阜市の習い事教室</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- ナビゲーション -->
+  <nav>
+    <div class="nav-container">
+      <a href="#top" class="nav-logo">
+        <img src="logo_header.webp" alt="Lessons room 実のなる木" width="280">
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニューを開閉">
+      <label for="nav-toggle" class="nav-burger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <ul class="nav-menu">
+        <li><a href="#features">選ばれる理由</a></li>
+        <li><a href="#courses">コース一覧</a></li>
+        <li><a href="#teachers">講師紹介</a></li>
+        <li><a href="#access">アクセス</a></li>
+        <li><a href="https://lin.ee/QaF0yZy" class="nav-cta">LINEで相談</a></li>
+      </ul>
+
+      <ul class="nav-drawer">
+        <li><a href="#features">選ばれる理由</a></li>
+        <li><a href="#courses">コース一覧</a></li>
+        <li><a href="#teachers">講師紹介</a></li>
+        <li><a href="#access">アクセス</a></li>
+        <li><a href="https://lin.ee/QaF0yZy" class="nav-cta">LINEで相談</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== ヒーローセクション ========== -->
+  <section class="hero" id="top">
+    <img src="logo_hero.webp" alt="Lessons room 実のなる木" class="hero-logo">
+    <p class="hero-location">岐阜市南蝉のピアノ・ギター・書道・算数教室</p>
+    <h1 class="hero-tagline">
+      それぞれの「好き」を<br>
+      ここで育てよう。
+    </h1>
+    <!--
+    <p class="hero-description">
+      「できた！」「楽しい！」を大切に、<br class="hero-br">
+      一人ひとりのペースで学べます。
+    </p>-->
+    <div class="hero-buttons">
+      <a href="https://lin.ee/QaF0yZy" class="btn-primary">LINEで相談</a>
+      <a href="#courses" class="btn-secondary">コース一覧を見る</a>
+    </div>
+  </section>
+
+  <!-- ========== お知らせ（NEWS） ========== -->
+  <section class="news" id="news">
+    <div class="news-inner reveal">
+      <div class="news-header">
+        <p class="section-label">News</p>
+        <h2 class="section-title"><span>お知らせ</span></h2>
+      </div>
+
+      <div class="news-grid">
+        <!-- NEWS CARD（CMS化したらここが複製される想定） -->
+        <article class="news-card">
+          <div class="news-card-media">
+            <img src="shodo_course.png" alt="親子リズム教室『ずむずむ®』のイメージ" loading="lazy">
+          </div>
+
+          <div class="news-card-body">
+            <p class="news-date">2025.01</p>
+            <h3 class="news-title">親子リズム教室「ずむずむ®」開講準備中！</h3>
+            <p class="news-text">
+              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。 
+              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。 
+              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。
+            </p>
+          </div>
+        </article>
+        <!-- <article class="news-card">
+          <div class="news-card-media">
+            <img src="photo-zumuzumu.png" alt="親子リズム教室『ずむずむ®』のイメージ" loading="lazy">
+          </div>
+
+          <div class="news-card-body">
+            <p class="news-date">2025.01</p>
+            <h3 class="news-title">親子リズム教室「ずむずむ®」開講準備中！</h3>
+            <p class="news-text">
+              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。 
+              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。 
+              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。
+            </p>
+          </div>
+        </article> -->
+      </div>
+    </div>
+  </section>
+  
+  <!-- ========== コース紹介 ========== -->
+  <section class="courses" id="courses">
+    <div class="courses-inner reveal">
+      <div class="courses-header">
+        <p class="section-label">Courses</p>
+        <h2 class="section-title">教室から<span>コース</span>を探す</h2>
+      </div>
+      <div class="courses-grid">
+        <a href="piano.html" class="course-card">
+          <img src="piano_course.png" alt="ピアノ教室 - 幼児から大人まで対応" class="course-card-img">
+          <div class="course-card-content">
+            <h3>ピアノ</h3>
+            <p>幼児〜大人</p>
+            <span class="course-card-link">詳しく見る</span>
+          </div>
+        </a>
+        <a href="guitar.html" class="course-card">
+          <img src="guitar_course.png" alt="ギター教室 - 初心者から中級者まで" class="course-card-img">
+          <div class="course-card-content">
+            <h3>ギター</h3>
+            <p>初心者〜中級</p>
+            <span class="course-card-link">詳しく見る</span>
+          </div>
+        </a>
+        <a href="shodo.html" class="course-card">
+          <img src="shodo_course1.webp" alt="書道教室 - こども・大人" class="course-card-img">
+          <div class="course-card-content">
+            <h3>書道</h3>
+            <p>こども・大人</p>
+            <span class="course-card-link">詳しく見る</span>
+          </div>
+        </a>
+        <a href="math.html" class="course-card">
+          <img src="math_course.png" alt="Mathクラブ - 小学生・中学生向け算数教室" class="course-card-img">
+          <div class="course-card-content">
+            <h3>Mathクラブ</h3>
+            <p>小学生・中学生</p>
+            <span class="course-card-link">詳しく見る</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 選ばれる理由 ========== -->
+  <section class="features" id="features">
+    <div class="features-inner reveal">
+      <p class="section-label">Features</p>
+      <h2 class="section-title">実のなる木が<span>選ばれる理由</span></h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon bg-lime">
+            <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+          </div>
+          <h3>初心者でも安心</h3>
+          <p>
+            基礎から丁寧に。<br>
+            つまずかせないレッスン。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon bg-blue">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+          </div>
+          <h3>選べる4つのコース</h3>
+          <p>
+            興味や目的に合わせて、<br>
+            無理なく続けられます。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon bg-yellow">
+            <i class="fa-solid fa-arrows-to-circle" aria-hidden="true"></i>
+          </div>
+          <h3>ひとつの教室で完結</h3>
+          <p>
+            複数の習い事も、<br>
+            同じ場所で受講できます。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon bg-red">
+            <i class="fa-solid fa-ticket-simple" aria-hidden="true"></i>
+          </div>
+          <h3>通いやすい料金体系</h3>
+          <p>
+            1回から通える<br>
+            チケット制レッスンです。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 教室のようす ========== -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-inner reveal">
+      <p class="section-label">Gallery</p>
+      <h2 class="section-title">教室の<span>ようす</span></h2>
+      <p class="gallery-text">
+        実際のレッスンや教室の雰囲気をご紹介します。<br>
+      </p>
+      <!-- いまの .gallery-grid をこれに置き換え -->
+      <div class="swiper gallery-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="gallery-item">
+              <img src="images/gallery/gallery-piano.webp" alt="ピアノ教室のレッスン風景">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="gallery-item">
+              <img src="images/gallery/gallery-guitar.webp" alt="ギター教室のレッスン風景">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="gallery-item">
+              <img src="images/gallery/gallery-shodo.webp" alt="書道教室のレッスン風景">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="gallery-item">
+              <img src="images/gallery/gallery-shodo-lesson.webp" alt="書道教室のレッスン風景">
+            </div>
+          </div>
+        </div>
+
+        <!-- ドット -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="teachers" id="teachers">
+    <div class="teachers-inner reveal">
+      <div class="teachers-header">
+        <p class="section-label">Teachers</p>
+        <h2 class="section-title">経験豊富な<span>講師陣</span></h2>
+      </div>
+
+      <div class="teachers-grid">
+        <div class="teacher-card">
+          <img src="images/teachers/usui.jpg" alt="臼井先生 - ピアノ講師" class="teacher-photo">
+          <div class="teacher-info">
+            <h3>臼井 先生</h3>
+            <p class="subject"><i class="fa-solid fa-music" aria-hidden="true"></i>ピアノ</p>
+            <p class="teacher-message">
+              「ピアノ楽しい❗️」「ピアノをやっていて良かった❗️」そんな生徒さんたちの声がとても嬉しく、励みになっています。一緒にピアノを弾くことの楽しさに触れてみましょう🎵
+            </p>
+            <p class="teacher-profile">
+              <span class="teacher-profile-label">プロフィール</span>
+              <span class="teacher-profile-text">元ヤマハ音楽教育システム講師。個人レッスン指導歴30年以上。</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="teacher-card">
+          <img src="images/teachers/kisumi.jpg" alt="来住先生 - ピアノ講師" class="teacher-photo">
+          <div class="teacher-info">
+            <h3>来住 先生</h3>
+            <p class="subject"><i class="fa-solid fa-music" aria-hidden="true"></i>ピアノ</p>
+            <p class="teacher-message">
+              音で遊び、奏でる楽しさを一緒に感じてもらえたら嬉しいです。「弾きたい❗️」と思った時が始め時♫ この機会に音楽の扉を開いてみませんか？
+            </p>
+            <p class="teacher-profile">
+              <span class="teacher-profile-label">プロフィール</span>
+              <span class="teacher-profile-text">元ヤマハ音楽教育システム講師。個人レッスン指導歴30年以上。</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="teacher-card">
+          <img src="images/teachers/masaki.jpg" alt="まさき先生 - ギター講師" class="teacher-photo">
+          <div class="teacher-info">
+            <h3>まさき 先生</h3>
+            <p class="subject"><i class="fa-solid fa-guitar" aria-hidden="true"></i>ギター</p>
+            <p class="teacher-message">
+              初めての方はもちろん、独学に限界を感じてしまっている方、オシャレギターを目指したい方など、お気軽にご相談ください！
+            </p>
+            <p class="teacher-profile">
+              <span class="teacher-profile-label">プロフィール</span>
+              <span class="teacher-profile-text">ギター歴20年。幅広いジャンルの演奏・指導に対応。</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="teacher-card">
+          <img src="images/teachers/oota.png" alt="太田先生 - 書道講師" class="teacher-photo">
+          <div class="teacher-info">
+            <h3>太田 先生</h3>
+            <p class="subject"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i>書道</p>
+            <p class="teacher-message">
+              自分の字に自信を持ってもらえるように、一画一画を大切にしながら、筆づかいや形の取り方を丁寧にお伝えしています。
+            </p>
+            <p class="teacher-profile">
+              <span class="teacher-profile-label">プロフィール</span>
+              <span class="teacher-profile-text">毛筆書写検定・硬筆書写検定ともに1級。高校書道非常勤講師。競書誌『創』師範。</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="teacher-card">
+          <img src="images/teachers/michiko.jpg" alt="みちこ先生 - Mathクラブ講師" class="teacher-photo">
+          <div class="teacher-info">
+            <h3>みちこ 先生</h3>
+            <p class="subject"><i class="fa-solid fa-calculator" aria-hidden="true"></i>Mathクラブ</p>
+            <p class="teacher-message">
+              わからないところをそのままにせず、
+              一人ひとりの理解に合わせて、丁寧に学べる時間を大切にしています。
+            </p>
+            <p class="teacher-profile">
+              <span class="teacher-profile-label">プロフィール</span>
+              <span class="teacher-profile-text">岐阜大学 教育学部に在籍。</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== アクセス・お問い合わせ（LINE化） ========== -->
+  <section class="access" id="access">
+    <div class="access-inner reveal">
+      <div class="access-header">
+        <p class="section-label">Access & Contact</p>
+        <h2 class="section-title">アクセス・お問い合わせ</h2>
+      </div>
+
+      <div class="access-grid">
+        <div class="access-left">
+
+          <div class="access-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.310262381917!2d136.75811707644002!3d35.44711257266364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003abec5bb3465f%3A0x785b539ec0cf0250!2z44CSNTAyLTA4NTIg5bKQ6Zic55yM5bKQ6Zic5biC5Y2X6J2J77yS5LiB55uu77yR77yS77ySIOWMl-W3neODk-ODqyDvvJLpmo4!5e0!3m2!1sja!2sjp!4v1768826766089!5m2!1sja!2sjp"
+              width="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="実のなる木の地図">
+            </iframe>
+          </div>
+
+          <a href="https://www.google.com/maps/dir/?api=1&destination=%E5%B2%90%E9%98%9C%E7%9C%8C%E5%B2%90%E9%98%9C%E5%B8%82%E5%8D%97%E8%9D%892%E4%B8%81%E7%9B%AE122%E7%95%AA%E5%9C%B0%20%E5%8C%97%E5%B7%9D%E3%83%93%E3%83%AB%202%E9%9A%8E"
+            target="_blank" rel="noopener noreferrer" class="access-nav-btn">
+            <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i>
+            Googleマップで経路を表示
+          </a>
+        </div>
+
+
+
+        <div class="access-info">
+          <div class="access-item">
+            <h3><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 所在地</h3>
+            <p>
+              〒502-0852<br>
+              岐阜県岐阜市南蝉2丁目122番地<br>
+              北川ビル 2階
+            </p>
+          </div>
+
+          <div class="access-item">
+            <h3><i class="fa-solid fa-comments" aria-hidden="true"></i> お問い合わせ</h3>
+            <p class="line-lead">
+              体験レッスンのお申し込み・ご質問は<br>
+              下記の連絡先からお気軽にご相談ください。
+            </p>
+
+            <a id="line" href="https://lin.ee/QaF0yZy" class="btn-contact">
+              <i class="fa-brands fa-line" aria-hidden="true"></i>
+              LINEで相談
+            </a>
+
+            <div class="contact-sub">
+              <a class="contact-link" href="mailto:minonaruki.official@gmail.com">
+                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                minonaruki.official@gmail.com
+              </a>
+              <a class="contact-link" href="tel:09070309355">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                090-7030-9355
+              </a>
+            </div>
+
+            <p class="line-note">
+            </p>
+          </div>
+
+          <div class="access-item">
+            <h3><i class="fa-brands fa-instagram" aria-hidden="true"></i> SNS</h3>
+            <p>
+              Instagram（公式）：
+              <a href="https://www.instagram.com/minonaruki_official/" target="_blank" rel="noopener noreferrer">
+                @minonaruki_official
+              </a><br>
+
+              Instagram（ギター講師）：
+              <a href="https://www.instagram.com/masaki_g1125?igshid=OGQ5ZDc2ODk2ZA%3D%3D" target="_blank"
+                rel="noopener noreferrer">
+                @masaki_g1125
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== フッター ========== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-main">
+
+        <div class="footer-brand">
+          <h3>Lessons room 実のなる木</h3>
+          <p>
+            岐阜市南蝉の小さな習い事教室。<br>
+            子どもも大人も、安心して通える場所です。
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h4>教室について</h4>
+            <ul>
+              <li><a href="index.html#teachers">講師紹介</a></li>
+              <li><a href="index.html#access">アクセス</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>お問い合わせ</h4>
+            <ul>
+              <li><a href="index.html#line">LINEで相談</a></li>
+              <li><a href="mailto:minonaruki.official@gmail.com">メール</a></li>
+              <li><a href="tel:09070309355">電話</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          © 2025 Lessons room 実のなる木. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('nav-toggle');
+      const drawer = document.querySelector('.nav-drawer');
+      const burger = document.querySelector('.nav-burger');
+
+      if (!toggle || !drawer || !burger) return;
+
+      // ハンバーガークリックで確実に開閉（checkboxのlabel連動が効かない環境対策）
+      burger.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggle.checked = !toggle.checked;
+      });
+
+      // ドロワー内リンクを押したら閉じる
+      drawer.addEventListener('click', function (e) {
+        const link = e.target.closest('a');
+        if (!link) return;
+        toggle.checked = false;
+      });
+
+      // メニュー外をクリックしたら閉じる
+      document.addEventListener('click', function (e) {
+        if (!toggle.checked) return;
+
+        const clickedInsideDrawer = drawer.contains(e.target);
+        const clickedBurger = burger.contains(e.target);
+
+        if (!clickedInsideDrawer && !clickedBurger) {
+          toggle.checked = false;
+        }
+      });
+
+      // 画面を広げてPC表示に戻ったら閉じる（状態残り防止）
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 900) {
+          toggle.checked = false;
+        }
+      });
+    })();
+  </script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+  <script>
+    let gallerySwiper = null;
+    window.gallerySwiper = null;
+
+    function setupGallerySwiper() {
+      const isMobile = window.matchMedia("(max-width: 600px)").matches;
+      const el = document.querySelector(".gallery-swiper");
+      if (!el) return;
+
+      // SPだけSwiper作成
+      if (isMobile && !gallerySwiper) {
+        gallerySwiper = new Swiper(el, {
+          loop: true,
+          centeredSlides: true,
+          slidesPerView: 1.15,
+          spaceBetween: 14,
+
+          watchOverflow: true,
+          preloadImages: false,
+          updateOnImagesReady: true,
+
+          // DOM表示/レイアウト変化追従（revealとの相性）
+          observer: true,
+          observeParents: true,
+
+          pagination: {
+            el: ".gallery-swiper .swiper-pagination",
+            clickable: true,
+          },
+
+          on: {
+            init(swiper) {
+              swiper.update();
+
+              requestAnimationFrame(() => {
+                swiper.slideToLoop(0, 0, false);
+                swiper.update();
+              });
+
+              setTimeout(() => {
+                swiper.slideToLoop(0, 0, false);
+                swiper.update();
+              }, 80);
+            },
+
+            imagesReady(swiper) {
+              swiper.slideToLoop(0, 0, false);
+              swiper.update();
+            },
+          },
+        });
+
+        window.gallerySwiper = gallerySwiper;
+      }
+
+      // PCに戻ったら破棄（CSS grid表示へ）
+      if (!isMobile && gallerySwiper) {
+        gallerySwiper.destroy(true, true);
+        gallerySwiper = null;
+        window.gallerySwiper = null;
+      }
+    }
+
+    // ★loadで作らない（リロード直後ズレの原因）
+    // window.addEventListener("load", setupGallerySwiper);
+
+    // SP↔PC切替だけ対応
+    window.addEventListener("resize", setupGallerySwiper);
+  </script>
+
+
+  <script>
+    (function () {
+      const targets = document.querySelectorAll('.reveal');
+      if (!targets.length) return;
+
+      // 古い環境対策：Observerがなければ即表示
+      if (!('IntersectionObserver' in window)) {
+        targets.forEach(el => el.classList.add('is-visible'));
+        // Galleryがあるなら一応初期化（古い環境用）
+        if (document.querySelector('.gallery-swiper')) {
+          setupGallerySwiper();
+        }
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+
+          // ★ Galleryが見えた瞬間にSwiperを作る（これが根本）
+          if (entry.target.querySelector && entry.target.querySelector('.gallery-swiper')) {
+            setupGallerySwiper();
+
+            // 念のため補正（デバイスモードのリロード直後対策）
+            requestAnimationFrame(() => {
+              if (window.gallerySwiper) {
+                window.gallerySwiper.slideToLoop(0, 0, false);
+                window.gallerySwiper.update();
+              }
+            });
+
+            setTimeout(() => {
+              if (window.gallerySwiper) {
+                window.gallerySwiper.slideToLoop(0, 0, false);
+                window.gallerySwiper.update();
+              }
+            }, 80);
+          }
+
+          obs.unobserve(entry.target); // 一度出たら固定
+        });
+      }, { rootMargin: '0px 0px -80px 0px' });
+
+      targets.forEach(el => observer.observe(el));
+    })();
+  </script>
+
+  <!-- ★ ここに追加 -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      if (window.matchMedia("(min-width: 601px)").matches) {
+        setupGallerySwiper();
+      }
+    });
+  </script>
+</body>
+</html>

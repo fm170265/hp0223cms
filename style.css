@@ -1,0 +1,1939 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic Pro', sans-serif;
+  color: #5D4037;
+  line-height: 1.9;
+  background: #FFFEF8;
+}
+
+/* カラー定義（ロゴカラー追加） */
+:root {
+  /* 既存の緑系 */
+  --green-main: #3A8F47;
+  --green-dark: #2D7A3A;
+  --green-pale: #EDF7EE;
+  --green-soft: #F5FAF5;
+
+  /* ロゴカラー */
+  --accent-yellow: #f5b942;
+  --accent-orange: #e8945a;
+  --accent-red: #d4726a;
+  --accent-blue: #5ac2c8;
+  --accent-lime: #a4d44e;
+
+  /* ブラウン系 */
+  --brown: #7A6855;
+  --brown-dark: #5D4037;
+  --brown-light: #A09080;
+
+  /* ベース色 */
+  --white: #ffffff;
+  --cream: #FFFEF8;
+  --cream-dark: #FBF9F3;
+
+  /* シャドウ */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 24px rgba(58, 143, 71, 0.12);
+
+  /* 角丸 */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-pill: 50px;
+}
+
+/* ========== ナビゲーション ========== */
+nav {
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  position: relative;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-main);
+  text-decoration: none;
+}
+
+/* ヘッダーロゴ画像対応（追記） */
+.nav-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.nav-logo-icon {
+  font-size: 28px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--brown);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--green-main);
+  transition: width 0.3s;
+}
+
+.nav-menu a:hover {
+  color: var(--green-main);
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.nav-menu li:last-child {
+  margin-left: 16px;
+}
+
+.nav-cta {
+  background: var(--green-main);
+  color: var(--white) !important;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.nav-cta:hover {
+  background: var(--green-dark);
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+/* ===== ハンバーガーメニュー（900px以下で表示） ===== */
+.nav-toggle {
+  position: absolute;
+  left: -9999px;
+}
+
+/* 三本線ボタン（≡の見た目を固定） */
+.nav-burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  /* 縦に積む */
+  flex-direction: column;
+  gap: 6px;
+
+  /* クリックを確実に通す */
+  position: relative;
+  z-index: 1100;
+  pointer-events: auto;
+}
+
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--brown-dark);
+  border-radius: 999px;
+  transition: transform .25s ease, opacity .25s ease;
+  pointer-events: none;
+}
+
+/* ドロワー（モバイル用メニュー） */
+.nav-drawer {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  list-style: none;
+  padding: 12px 16px 18px;
+  margin: 0;
+  background: var(--white);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-md);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  z-index: 1090;
+}
+
+.nav-drawer li+li {
+  margin-top: 8px;
+}
+
+.nav-drawer a {
+  display: block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--brown);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-drawer a:hover {
+  background: var(--green-pale);
+  color: var(--green-dark);
+}
+
+/* 開いたとき：三本線→× */
+.nav-toggle:checked+.nav-burger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle:checked+.nav-burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle:checked+.nav-burger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* 開いたとき：ドロワー表示 */
+.nav-toggle:checked~.nav-drawer {
+  display: block;
+}
+
+/* ========== ヒーローセクション ========== */
+.hero {
+  padding-top: 80px;
+  background:
+    radial-gradient(ellipse at 20% 80%,
+      rgba(164, 212, 78, 0.14) 0%,
+      transparent 55%),
+    radial-gradient(ellipse at 80% 30%,
+      rgba(232, 212, 168, 0.16) 0%,
+      transparent 55%),
+    linear-gradient(180deg,
+      #ffffff 0%,
+      #f7fbf4 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-logo {
+  max-width: 420px;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.hero-location {
+  font-size: 14px;
+  color: var(--green-main);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.hero-tagline {
+  font-size: 28px;
+  color: var(--brown-dark);
+  margin-bottom: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.hero-description {
+  font-size: 15px;
+  color: var(--brown);
+  margin-bottom: 36px;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--green-main);
+  color: var(--white);
+  padding: 18px 36px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 4px 16px rgba(58, 143, 71, 0.25);
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(58, 143, 71, 0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--green-main);
+  padding: 16px 36px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  border: 2px solid var(--green-main);
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: var(--green-pale);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--brown-light);
+  font-size: 12px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+}
+
+/* ========== 共通セクションスタイル ========== */
+.section-label {
+  font-size: 11px;
+  color: var(--green-main);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: 26px;
+  color: var(--brown-dark);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.section-title span {
+  color: var(--green-main);
+}
+
+/* ========== コンセプトセクション ========== */
+.concept {
+  padding: 80px 20px;
+  background: var(--white);
+  text-align: center;
+}
+
+.concept-text {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 15px;
+  color: var(--brown);
+  line-height: 2.1;
+}
+
+/* ========== コース紹介 ========== */
+.courses {
+  padding: 100px 20px;
+  background: linear-gradient(180deg,
+      #eef6ef 0%,
+      #e7f1e9 100%);
+}
+
+.courses-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.courses-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.course-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s;
+  text-decoration: none;
+  display: block;
+  border-bottom: 3px solid transparent;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* コースカードのホバーエフェクト（テーマカラー） */
+.course-card:nth-child(1):hover {
+  border-bottom-color: var(--accent-yellow);
+}
+
+.course-card:nth-child(2):hover {
+  border-bottom-color: var(--accent-orange);
+}
+
+.course-card:nth-child(3):hover {
+  border-bottom-color: var(--accent-red);
+}
+
+.course-card:nth-child(4):hover {
+  border-bottom-color: var(--accent-blue);
+}
+
+.course-card-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.course-card-content {
+  padding: 22px 18px;
+  text-align: center;
+}
+
+.course-card h3 {
+  font-size: 18px;
+  color: var(--brown-dark);
+  margin-bottom: 6px;
+}
+
+.course-card p {
+  font-size: 13px;
+  color: var(--brown-light);
+  margin-bottom: 14px;
+}
+
+.course-card-link {
+  font-size: 13px;
+  color: var(--green-main);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.course-card-link::after {
+  content: '→';
+  transition: transform 0.3s;
+}
+
+.course-card:hover .course-card-link::after {
+  transform: translateX(4px);
+}
+
+/* ========== 選ばれる理由（Features） ========== */
+.features {
+  padding: 80px 20px;
+  background: linear-gradient(180deg,
+      #ffffff 0%,
+      #fafcf9 100%);
+}
+
+.features-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: var(--cream);
+  padding: 32px 20px;
+  border-radius: var(--radius-md);
+  transition: all 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 1.5rem;
+}
+
+/* Font Awesome表示 */
+.feature-icon i {
+  font-size: 26px;
+  color: var(--white);
+}
+
+/* 背景色クラス */
+.bg-lime {
+  background: var(--accent-lime) !important;
+}
+
+.bg-blue {
+  background: var(--accent-blue) !important;
+}
+
+.bg-yellow {
+  background: var(--accent-yellow) !important;
+}
+
+.bg-red {
+  background: var(--accent-red) !important;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  color: var(--brown-dark);
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 13px;
+  color: var(--brown-light);
+}
+
+
+/* ========== 教室のようす（Gallery） ========== */
+.gallery {
+  padding: 80px 20px;
+  background: linear-gradient(180deg,
+      #fafaf6 0%,
+      #f2f2ec 100%);
+}
+
+.gallery-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gallery-text {
+  font-size: 14px;
+  color: var(--brown);
+  line-height: 2;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: var(--white);
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ========== 講師紹介 ========== */
+.teachers {
+  padding: 100px 20px;
+  background: linear-gradient(180deg,
+      #ffffff 0%,
+      #fafcf9 100%);
+}
+
+.teachers-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.teachers-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.teacher-card {
+  background: var(--cream-dark);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.teacher-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.teacher-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+.teacher-info h3 {
+  font-size: 18px;
+  color: var(--brown-dark);
+  margin-bottom: 6px;
+}
+
+.teacher-info .subject {
+  font-size: 13px;
+  color: var(--green-main);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.teacher-info p {
+  font-size: 14px;
+  color: var(--brown);
+  line-height: 1.7;
+}
+
+/* 紹介文は少し濃く（A案） */
+.teacher-message {
+  font-size: 14px;
+  color: var(--brown-dark);
+  line-height: 1.9;
+  font-weight: 600;
+}
+
+/* プロフィール（旧: teacher-career） */
+.teacher-profile {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--brown);
+  line-height: 1.7;
+  display: block;
+}
+
+.teacher-profile-label {
+  display: block;
+  font-weight: 600;
+  color: var(--brown-dark);
+  margin: 0 0 0px;
+}
+
+.teacher-profile-text {
+  display: block;
+}
+
+/* subjectのFAアイコン見た目統一 */
+.teacher-info .subject i {
+  margin-right: 6px;
+}
+
+/* ========== アクセス・お問い合わせ ========== */
+.access {
+  padding: 100px 20px;
+  background: linear-gradient(180deg,
+      #eef6ef 0%,
+      #e7f1e9 100%);
+}
+
+.access-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.access-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.access-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.access-left {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.access-map {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  flex: 1;
+  min-height: 0px;
+}
+
+.access-map iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 地図下のナビボタン（中サイズ・中央寄せ） */
+.access-nav-btn {
+  margin: 18px auto 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--white);
+  color: var(--green-main);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s;
+}
+
+.access-nav-btn:hover {
+  background: var(--green-pale);
+  color: var(--green-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.access-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.access-item {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+}
+
+.access-item h3 {
+  font-size: 14px;
+  color: var(--green-main);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.access-item p {
+  font-size: 14px;
+  color: var(--brown);
+  line-height: 1.8;
+}
+
+.access-item a {
+  color: var(--green-main);
+  text-decoration: none;
+}
+
+.access-item a:hover {
+  text-decoration: underline;
+}
+
+/* LINE導線（位置はそのまま、存在感UP） */
+.line-lead {
+  margin-bottom: 10px;
+}
+
+.line-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--brown-light);
+}
+
+/* お問い合わせボタン（LINEを少し強く） */
+.btn-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  background: var(--green-main);
+  color: var(--white) !important;
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid var(--green-main);
+  box-shadow: 0 6px 18px rgba(58, 143, 71, 0.18);
+  transition: all 0.3s;
+}
+
+.btn-contact:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(58, 143, 71, 0.22);
+}
+
+.btn-contact i {
+  font-size: 16px;
+}
+
+.contact-sub{
+  margin-top: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.contact-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--brown);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.contact-link:hover{
+  text-decoration: underline;
+}
+
+/* ========== フッター ========== */
+footer {
+  background: var(--brown-dark);
+  color: var(--white);
+  padding: 56px 20px 28px;
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  margin-bottom: 36px;
+}
+
+.footer-brand h3 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  opacity: 0.8;
+  line-height: 1.8;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.footer-links h4 {
+  font-size: 13px;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sns-links {
+  margin-bottom: 16px;
+}
+
+.sns-links a {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 12px;
+  margin: 0 4px;
+  transition: background 0.3s;
+}
+
+.sns-links a:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.copyright {
+  font-size: 11px;
+  opacity: 0.5;
+}
+
+/* ========== ページ区切り（プレビュー用） ========== */
+.page-divider {
+  background: linear-gradient(135deg, var(--green-main), var(--green-dark));
+  color: var(--white);
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ========== レスポンシブ ========== */
+@media (max-width: 900px) {
+
+  /* ナビ：900px以下はハンバーガーに切り替え */
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-burger {
+    display: inline-flex;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .teachers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .access-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .hero-tagline {
+    font-size: 22px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .features-catch {
+    font-size: 18px;
+    padding: 0 20px;
+  }
+
+  .teacher-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .teacher-profile {
+    text-align: center;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  .access-map {
+    min-height: 320px;
+  }
+
+  .access-nav-btn {
+    font-size: 14px;
+    padding: 12px 18px;
+  }
+
+}
+
+/* ========== モーダル ========== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  padding: 20px;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  max-width: 520px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s;
+}
+
+.modal-overlay.is-open .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--cream-dark);
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--brown);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.modal-close:hover {
+  background: var(--green-pale);
+  color: var(--green-main);
+}
+
+.modal-body {
+  padding: 40px 32px 32px;
+}
+
+.modal-title {
+  font-size: 24px;
+  color: var(--brown-dark);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.modal-section {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.modal-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 16px;
+}
+
+.modal-section h3 {
+  font-size: 15px;
+  color: var(--green-main);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.modal-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-section li {
+  font-size: 14px;
+  color: var(--brown);
+  padding: 4px 0 4px 20px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.modal-section li::before {
+  content: '・';
+  position: absolute;
+  left: 4px;
+  color: var(--green-main);
+}
+
+.modal-note {
+  font-size: 12px;
+  color: var(--brown-light);
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: var(--cream-dark);
+  border-radius: var(--radius-sm);
+}
+
+.modal-text {
+  font-size: 14px;
+  color: var(--brown);
+  margin-top: 10px;
+  line-height: 1.7;
+}
+
+.modal-cta {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--cream-dark);
+  margin-top: 8px;
+}
+
+.modal-cta p {
+  font-size: 14px;
+  color: var(--brown);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.modal-cta-btn {
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+}
+
+/* body固定（モーダル表示中） */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* モーダル レスポンシブ */
+@media (max-width: 600px) {
+  .modal-body {
+    padding: 36px 20px 24px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .modal-section h3 {
+    font-size: 14px;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+  }
+}
+
+/* ===== hero: final lightweight fade & slide ===== */
+
+.hero .hero-logo,
+.hero .hero-location,
+.hero .hero-tagline,
+.hero .hero-description,
+.hero .hero-buttons,
+.hero .hero-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: heroIn 1.2s cubic-bezier(.22, .9, .3, 1) forwards;
+}
+
+/* ヒーロー本体は一塊で */
+.hero .hero-logo,
+.hero .hero-location,
+.hero .hero-tagline,
+.hero .hero-description {
+  animation-delay: .05s;
+}
+
+/* CTA（LINEで相談）は少しだけ遅らせる */
+.hero .hero-buttons {
+  animation-delay: .15s;
+}
+
+/* Scrollは最後・かなり軽く */
+.hero .hero-scroll {
+  transform: translateY(8px);
+  animation-duration: .6s;
+  animation-delay: .25s;
+}
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 動きが苦手な人には停止 */
+@media (prefers-reduced-motion: reduce) {
+
+  .hero .hero-logo,
+  .hero .hero-location,
+  .hero .hero-tagline,
+  .hero .hero-description,
+  .hero .hero-buttons,
+  .hero .hero-scroll {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===== scroll reveal ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 動きが苦手な人には停止 */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* =========================
+   Readability patch (color > weight)
+   - 太さを増やしすぎず、色の濃さと少しのサイズで可読性UP
+   - 同一セクション内の等価テキストは同じ扱い
+   ========================= */
+
+/* --- HERO --- */
+.hero-tagline {
+  font-size: 32px;
+  /* 28px → 大きく */
+  color: var(--brown-dark);
+  /* 濃いブラウン */
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  /* ← マジック感を消す核心 */
+  /* font-weight は触らない（現状のまま） */
+}
+
+.hero-description {
+  font-size: 17px;
+  /* 15px → 少しだけ */
+  color: var(--brown);
+  /* 薄い色は使わない */
+  font-weight: 400;
+  /* 太くしない */
+  line-height: 2.0;
+}
+
+@media (max-width: 600px) {
+  .hero-tagline {
+    font-size: 26px;
+  }
+
+  /* 22px → 少しだけ */
+  .hero-description {
+    font-size: 16px;
+  }
+}
+
+/* --- COURSES（「幼児〜大人」等の視認性） --- */
+.course-card p {
+  font-size: 14px;
+  /* 13px → 少しだけ */
+  color: var(--brown);
+  /* brown-light をやめる */
+  font-weight: 400;
+  /* 太くしない */
+}
+
+/* --- FEATURES（上の説明文：小さい＆薄い問題） ---
+   HTML側で .features-catch を使っている前提（レスポンシブに存在） */
+.features-catch {
+  font-size: 16px;
+  /* 読ませる本文として */
+  color: var(--brown);
+  /* 濃さで改善 */
+  font-weight: 400;
+  /* 太くしない */
+  line-height: 2.1;
+  max-width: 720px;
+  margin: 0 auto 28px;
+  /* 既存レイアウトに馴染ませる */
+}
+
+/* --- FEATURESカード：文字は太くせず、背景を少し沈める --- */
+.feature-card {
+  background: #f7f2e8;
+  /* var(--cream) より1段だけ濃く（同化対策） */
+}
+
+.feature-card h3 {
+  color: var(--brown-dark);
+  /* 太さは増やしすぎない。必要なら600まで */
+  font-weight: 600;
+}
+
+.feature-card p {
+  font-size: 14px;
+  /* 13px → 少しだけ */
+  color: var(--brown);
+  /* brown-light をやめる */
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+/* --- ACCESS：住所とLINE案内を “等価” として完全に揃える --- */
+.access-item p,
+.line-lead {
+  font-size: 15px;
+  color: var(--brown);
+  font-weight: 400;
+  line-height: 2.0;
+}
+
+/* 注釈だけは薄く（役割分離） */
+.line-note {
+  color: var(--brown-light);
+  font-weight: 400;
+}
+
+/* --- HERO 微調整：マジック感の最終除去 --- */
+.hero-tagline {
+  line-height: 1.4;
+}
+
+/* --- FEATURES 説明文を正しく効かせる --- */
+.features .gallery-text {
+  font-size: 16px;
+  color: var(--brown);
+  font-weight: 400;
+  line-height: 2.1;
+}
+
+.gallery .gallery-text {
+  font-size: 16px;
+  color: var(--brown);
+  font-weight: 400;
+  line-height: 2.1;
+}
+
+/* =========================
+   Hero Scroll（fade-in + float）
+   ========================= */
+.hero .hero-scroll {
+  left: 50%;
+  opacity: 0;
+  transform: translateX(-50%) translateY(14px);
+  animation:
+    heroInScroll .6s cubic-bezier(.22, .9, .3, 1) forwards,
+    scrollFloat .8s ease-in-out infinite;
+  animation-delay: .25s, .95s;
+  /* ← 0.6s + 0.25s = 0.85s くらいから浮遊開始 */
+}
+
+@keyframes heroInScroll {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes scrollFloat {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+}
+
+/* ===== ヒーローセクション <br> を無効化 ===== */
+.hero-description br {
+  display: none;
+}
+
+/* 基本は消す */
+.hero-description br.hero-br {
+  display: inline;
+}
+
+/* これだけ表示 */
+
+/* ===== 日本語の自動改行を“いい感じ”にする ===== */
+.gallery-text {
+  text-wrap: balance;
+  /* 対応ブラウザでは改行位置が自然になる */
+  line-break: strict;
+  /* 日本語の禁則を少し厳しめに */
+}
+
+/* ===== 講師紹介：スマホは「中央に置いた左揃え」 ===== */
+@media (max-width: 600px) {
+
+  .teacher-message,
+  .teacher-profile {
+    text-align: left;
+    max-width: 320px;
+    /* ← これが効く */
+    margin: 0 auto;
+    /* ← 中央に箱を置く */
+  }
+}
+
+/* ===== SP: セクション間余白 最終調整 ===== */
+@media (max-width: 600px) {
+
+  /* 情報量が多いセクション */
+  .courses,
+  .teachers,
+  .access {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  /* 見せる系セクション */
+  .features,
+  .gallery {
+    padding-top: 48px;
+    padding-bottom: 52px;
+  }
+
+  /* 見出し周り */
+  .features .section-label,
+  .gallery .section-label {
+    margin-bottom: 6px;
+  }
+
+  .features .section-title,
+  .gallery .section-title {
+    margin-bottom: 16px;
+  }
+
+  /* 説明文（Gallery / Features 共通） */
+  .features .gallery-text,
+  .gallery .gallery-text {
+    margin-bottom: 22px;
+  }
+}
+
+/* ヒーロー説明文：視認性アップ */
+.hero-description {
+  color: var(--brown-dark);
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+/* ===== Header color tune (no transparency) ===== */
+nav {
+  background: var(--cream);           /* #FFFEF8：真っ白をやめる */
+  box-shadow: 0 2px 8px rgba(0,0,0,.04); /* 影を弱める（板感カット） */
+}
+
+/* =========================
+   Gallery：Swiper（SPはカルーセル / PCは4列）
+========================= */
+
+/* PC：4枚横並び（動きなし） */
+.gallery-swiper {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+@media (min-width: 601px) {
+  .gallery-swiper .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .gallery-swiper .swiper-slide {
+    width: auto !important;
+  }
+
+  .gallery-swiper .swiper-pagination {
+    display: none;
+  }
+}
+
+/* SP：中央1枚＋左右チラ見え＋ドット */
+@media (max-width: 600px) {
+  .gallery-swiper {
+    padding-bottom: 26px; /* ドット分 */
+  }
+
+  /* スライドの中身は既存の見た目を活かす */
+  .gallery-swiper .swiper-slide .gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ドット見た目 */
+  .gallery-swiper .swiper-pagination {
+    bottom: 6px;
+  }
+}
+
+/* Swiperでも.gallery-itemの見た目を維持 */
+.gallery-swiper .gallery-item{
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s;
+}
+
+.gallery-swiper .gallery-item:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Swiper用：画像高さを統一（SPで気持ちいい高さに） */
+@media (max-width: 600px){
+  .gallery-swiper .gallery-item img{
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* SP：左右チラ見えを確実に見せる（Swiperのはみ出しを許可） */
+@media (max-width: 600px){
+  .gallery-swiper{
+    overflow: visible;
+  }
+}
+
+/* ===== Swiper：SP 左右チラ見せを有効にする上書き ===== */
+@media (max-width: 600px) {
+
+  /* コンテナをはみ出し可にする（←最重要） */
+  .gallery-swiper{
+    overflow: visible;
+    padding: 0 12px 26px; /* 左右チラ見え + ドット分 */
+  }
+
+  /* 既存の padding を“無効化”する */
+  .gallery-swiper .swiper-wrapper{
+    padding: 0;
+  }
+
+  /* ドット位置の微調整 */
+  .gallery-swiper .swiper-pagination{
+    bottom: 6px;
+  }
+}
+
+/* =========================
+   PC：Swiper未初期化でも「4列グリッド」で見せる保険
+   （PCで1枚だけデカく見える問題の根本対策）
+========================= */
+@media (min-width: 601px) {
+  /* Swiperのoverflow:hiddenで1枚に見えるのを防ぐ */
+  .gallery-swiper {
+    overflow: visible;
+  }
+
+  /* Swiperが初期化されてない時（= PC想定）は grid に強制 */
+  .gallery-swiper:not(.swiper-initialized) .swiper-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    transform: none !important; /* Swiper系のtransformが残っても無効化 */
+  }
+
+  .gallery-swiper:not(.swiper-initialized) .swiper-slide {
+    width: auto !important;
+    flex: unset !important;
+  }
+
+  /* PCでも画像を枠にフィットさせる（デカ表示予防） */
+  .gallery-swiper .gallery-item img {
+    width: 100%;
+    height: 300px;       /* 好みで 160〜220 くらいで調整OK */
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* =========================
+   Gallery PC：幅を広げる（最終上書き）
+========================= */
+@media (min-width: 601px) {
+
+  /* 親の幅制限（ここが1000pxで止まってた） */
+  .gallery .gallery-inner{
+    max-width: 1500px;   /* 例：1200〜1400で好み */
+  }
+
+  /* Swiper自体の幅制限（900pxが残ってた） */
+  .gallery-swiper{
+    max-width: 1200px;   /* 親と合わせる */
+    width: 100%;
+  }
+
+  /* 4枚の“縦サイズ”もここで確定（180pxを上書き） */
+  .gallery-swiper .gallery-item img{
+    height: 260px;       /* 例：220〜320くらい */
+    object-fit: cover;
+  }
+}
+
+/* ===== FIX: Gallery(SP) 横幅がはみ出してページが横スクロールする問題 ===== */
+@media (max-width: 600px) {
+  /* セクションごと横幅を増やさない（保険） */
+  .gallery {
+    overflow-x: hidden;
+  }
+
+  /* Swiperのはみ出しでscrollWidthが増えるのを止める（根本） */
+  .gallery-swiper {
+    overflow: hidden;          /* ← visible をやめる */
+    width: 100%;
+    padding: 0 12px 26px;      /* 左右チラ見せ用余白 + ドット分は維持 */
+  }
+}
+
+/* ====== ヒーロー：スマホ最適化 ====== */
+@media (max-width: 768px) {
+  .hero{
+    min-height: auto;          /* 100vhをやめる */
+    padding-top: 120px;         /* 80→少し詰める */
+    padding-bottom: 56px;      /* 下も確保（CTAが詰まらない） */
+    justify-content: flex-start; /* 中央寄せをやめて上から積む */
+  }
+
+  .hero-logo{
+    max-width: 260px;          /* 420→縮める（効き目大） */
+    margin-bottom: 16px;
+  }
+
+  .hero-tagline{
+    font-size: 24px;           /* 28→少しだけ */
+    margin-bottom: 18px;       /* 24→詰める */
+    line-height: 1.45;
+  }
+
+  .hero-description{
+    margin-bottom: 24px;       /* 36→詰める */
+  }
+
+  .hero-buttons{
+    gap: 12px;                 /* 16→詰める */
+  }
+
+  .btn-primary{
+    padding: 16px 28px;        /* 少しだけ小さく */
+  }
+
+  .btn-secondary{
+    padding: 14px 28px;
+  }
+
+  .hero-scroll{
+    display: none;             /* まずは消す（下の圧迫要因） */
+  }
+}
+
+
+/* ===== HERO：SPはロゴ主役（A案） ===== */
+@media (max-width: 600px){
+
+  /* ロゴを主役に戻す */
+  .hero-logo{
+    max-width: 300px;   /* 260 → 300 */
+    width: 86%;
+    margin-bottom: 14px;
+  }
+
+  /* キャッチは強すぎないサイズに */
+  .hero-tagline{
+    font-size: 24px;    /* 26 → 24 */
+    line-height: 1.35;
+    margin-bottom: 14px;
+    letter-spacing: 0.03em; /* 0.06が強めなら弱める */
+  }
+
+  /* CTAは“横幅はそのまま”で高さだけ少し薄く */
+  .btn-primary{
+    padding: 14px 24px; /* 16 28 → 14 24 */
+    font-size: 15px;    /* 16 → 15 */
+  }
+
+  .btn-secondary{
+    padding: 12px 24px; /* 14 28 → 12 24 */
+    font-size: 14px;    /* 15 → 14 */
+  }
+
+  /* ボタン間も少し締める */
+  .hero-buttons{
+    gap: 10px;          /* 12 → 10 */
+    max-width: 320px;   /* 既存と同じならOK */
+  }
+}
+
+
+/* =========================
+   NEWS（お知らせ）
+========================= */
+.news{
+  padding: 90px 20px;
+  background: linear-gradient(180deg, #fff6ec 0%, #f9ecd3 100%);
+}
+
+.news-inner{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.news-header{
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.news .section-label {
+  color: #c48a55;
+}
+
+.news .section-title span {
+  color: #7b5538;
+}
+
+/* CMSで複数件になっても崩れない */
+.news-grid{
+  display: grid;
+  gap: 20px;
+}
+
+/* カード：PCは横長、SPは縦積み */
+.news-card{
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 550px 1fr; /* 横に広げる（文章を読みやすく） */
+  min-height: 220px;
+}
+
+.news-card-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.news-card-body{
+  padding: 22px 24px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+}
+
+/* 日付を緑で強調 */
+.news-date{
+  font-size: 13px;
+  font-weight: 700;
+  color: #8a6346;
+  letter-spacing: 0.06em;
+}
+
+.news-title{
+  font-size: 18px;
+  color: var(--brown-dark);
+  line-height: 1.5;
+}
+
+.news-text{
+  font-size: 14px;
+  color: var(--brown);
+  line-height: 1.9;
+}
+
+/* Hover（控えめ） */
+.news-card:hover{
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* レスポンシブ */
+@media (max-width: 900px){
+  .news-card{
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+@media (max-width: 600px){
+  .news{
+    padding: 64px 20px;
+  }
+
+  .news-header{
+    margin-bottom: 26px;
+  }
+
+  .news-card{
+    grid-template-columns: 1fr;
+  }
+
+  .news-card-media img{
+    height: 240px;
+  }
+
+  .news-card-body{
+    padding: 18px 18px 20px;
+  }
+
+  .news-title{
+    font-size: 17px;
+  }
+}

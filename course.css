@@ -1,0 +1,805 @@
+/* =========================
+   Piano course page only
+   index.html / style.css は変更しない
+   ========================= */
+
+.course-page {
+  padding-top: 64px; /* fixed nav 対策 */
+}
+
+.course-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================
+   Hero
+   ========================= */
+.course-hero {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(245,185,66,.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 30%, rgba(90,194,200,.08) 0%, transparent 55%),
+    linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+  padding: 32px 0 56px;
+}
+
+.course-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.course-hero-text {
+  text-align: center;
+}
+
+.course-hero-prose {
+  max-width: 840px;  /* 840 → 1000 */
+  margin: 0 auto;
+}
+
+.course-hero-title {
+  font-size: 32px;
+  color: var(--brown-dark);
+  margin-bottom: 12px;
+}
+
+/* 白い箱を撤去して馴染ませる */
+.course-hero-prose {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin-top: 10px;
+}
+
+.course-hero-prose p {
+  font-size: 15px;
+  line-height: 1.9; /* 2.1 → 1.9 */
+  color: var(--brown);
+}
+
+.course-hero-prose p + p {
+  margin-top: 8px;  /* 12px → 8px */
+}
+
+.hero-figure {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--cream-dark);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.course-hero-media {
+  max-width: 1000px; /* 料金表と同じ軸 */
+  width: 100%;       /* ★これがないと“細く”見える原因になりやすい */
+  margin: 0 auto;
+  order: -1;
+}
+
+
+/* キャプションは表示しない（HTMLに残っててもOK） */
+.hero-caption { display: none; }
+
+/* =========================
+   Section
+   ========================= */
+.course-section {
+  padding: 48px 0; /* 72px → 48px */
+  background: var(--white);
+}
+
+.course-section-alt {
+  background: var(--green-soft);
+}
+
+.course-section-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* =========================
+   Display switch
+   ========================= */
+.course-only-mobile { display: none; }
+.course-only-desktop { display: block; }
+
+/* =========================
+   PC Table
+   - 線のズレが出にくいよう separate + border-spacing:0
+   ========================= */
+.course-table-wrap {
+  border: 1px solid var(--green-main);
+  border-radius: var(--radius-md);
+
+  /* ③：横幅が狭い時に表を横スクロールできるようにする */
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.course-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* =====================================================
+   横スクロール時：列幅を内容基準で詰める
+   （料金・時間 / 相場比較 共通）
+===================================================== */
+
+/* course-table 共通：横スクロール前提の最小幅を調整 */
+.course-table {
+  table-layout: fixed;
+  min-width: 560px; /* ← 860pxから実質的に上書き */
+}
+
+/* 共通：左の「項目」列 */
+.course-table th.course-table-corner {
+  width: 38%;
+}
+
+/* 共通：右側の列（個人／ペア／当教室／他教室相場） */
+.course-table th.course-table-col,
+.course-table td {
+  width: 31%;
+}
+
+/* 相場比較表は、さらに詰める */
+.course-table--compare {
+  min-width: 520px;
+}
+
+.course-table--compare th.course-table-corner {
+  width: 40%;
+}
+
+.course-table--compare th.course-table-col,
+.course-table--compare td {
+  width: 30%;
+}
+
+/* =====================================================
+   ④ 相場比較表：当教室列の強調（左揃え前提）
+===================================================== */
+/*
+.course-table--compare thead th:nth-child(2),
+.course-table--compare tbody td:nth-child(2) {
+  background-color: rgba(58, 143, 71, 0.06);
+}
+
+.course-table--compare th,
+.course-table--compare td {
+  text-align: left;
+}
+*/
+
+.course-table th,
+.course-table td {
+  padding: 18px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--green-main);
+}
+
+/* 最終行は下線なし（外枠に任せる） */
+.course-table tbody tr:last-child th,
+.course-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* thead */
+.course-table thead th {
+  background: var(--green-dark);
+  color: var(--white);
+  text-align: center;
+  font-weight: 700;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+/* theadの縦線（見出し間）：cream-dark で統一 */
+.course-table thead th:not(:last-child) {
+  border-right: 1px solid var(--cream-dark);
+}
+
+/* .course-table-corner { width: 28%; }*/
+/* .course-table-col { width: 36%; }*/
+
+/* 左の項目列（緑） */
+.course-table tbody th.course-table-rowhead {
+  background: var(--green-main);
+  color: var(--white);
+  text-align: center; /* ← center をやめる */
+  font-weight: 700;
+  white-space: nowrap;
+
+  /* ★テーブルのまま上下中央 */
+  vertical-align: middle;
+
+  /* ★項目列の境目（横線）：cream-dark */
+  border-bottom: 1px solid var(--cream-dark);
+
+  /* ★項目｜子ども の縦線：cream-dark */
+  border-right: 1px solid var(--cream-dark);
+}
+
+
+.course-table tbody tr:last-child th.course-table-rowhead {
+  border-bottom: none;
+}
+
+/* 本文セル */
+.course-table tbody td {
+  background: var(--white);
+  color: var(--brown);
+  border-right: 1px solid var(--green-main); /* 子ども｜大人：緑線 */
+}
+
+.course-table tbody td:last-child {
+  border-right: none;
+}
+
+.cell-main {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--brown-dark);
+  line-height: 1.9;
+}
+
+.cell-note {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--brown-light);
+  line-height: 1.7;
+}
+
+/* セル内の「料金リスト / 内容リスト」を見出し（cell-main）と同格の見た目に */
+.cell-body{
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brown-dark);
+  line-height: 1.9;
+}
+
+.cell-bonus {
+  margin-top: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-dark);
+  background: rgba(58,143,71,.06);
+  border: 1px solid var(--cream-dark);
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+/* =========================
+   Mobile Overview
+   - スマホでも「項目列（緑帯）」のデザインを維持
+   ========================= */
+.course-overview-mobile {
+  display: none;
+}
+
+.overview-card {
+  border: 1px solid var(--green-main);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.overview-title {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.overview-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  border-top: 1px solid var(--green-main);
+}
+
+.overview-row:first-child { border-top: none; }
+
+.overview-row dt {
+  background: var(--green-main);
+  color: var(--white);
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px;
+
+  /* ★項目列の境目（横線）：cream-dark */
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.overview-row:last-child dt { border-bottom: none; }
+
+.overview-row dd {
+  margin: 0;
+  padding: 14px 14px;
+  border-left: 1px solid var(--green-main);
+}
+
+/* （必要なら）右側の区切りをうっすら追加する場合はこちら
+   → 今回は「項目列の線」が要望だったのでデフォはオフ */
+/*
+.overview-row:not(:last-child) dd{
+  border-bottom: 1px solid var(--cream-dark);
+}
+*/
+
+/* =========================
+   Bottom CTA（B案：高さを揃えて一体化）
+   ========================= */
+.course-cta {
+  padding: 56px 0; /* 72px → 56px */
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(58,143,71,.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 30%, rgba(245,185,66,.10) 0%, transparent 55%),
+    linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+  border-top: 1px solid var(--cream-dark);
+}
+
+.course-cta-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+}
+
+.course-cta-title {
+  font-size: 24px;
+  color: var(--brown-dark);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.course-cta-lead {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--brown);
+}
+
+/* 右側：ボタン群（“浮いて見える”のを防ぐため、帯の中央に置く） */
+.course-cta-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 14px;
+}
+
+
+/* ボタン：高さを抑えて上品に */
+.course-cta-actions .btn-primary,
+.course-cta-actions .btn-secondary {
+  min-height: 52px;
+  padding: 13px 22px;
+  line-height: 1.6;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+/* 900px以下（タブレット〜） */
+@media (max-width: 900px) {
+  .course-hero-inner { grid-template-columns: 1fr; }
+  .hero-image { height: 280px; }
+
+  .course-cta-inner {
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+}
+
+/* 600px以下（スマホ） */
+@media (max-width: 600px) {
+  .course-only-desktop { display: none; }
+  .course-only-mobile { display: block; }
+
+  .course-overview-mobile {
+    display: grid;
+    gap: 16px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .course-hero { padding: 36px 0 46px; }
+  .course-hero-title { font-size: 26px; }
+  .hero-image { height: 240px; }
+
+  /* ★スマホ：写真→文章の順 */
+  .course-hero-media { order: -1; }
+  .course-hero-text { order: 1; }
+
+  /* CTA：スマホは縦 */
+  .course-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .course-cta-actions .btn-primary,
+  .course-cta-actions .btn-secondary {
+    width: 100%;
+    white-space: normal; /* スマホは無理に1行にしない */
+  }
+}
+
+/* 420px以下（小さめスマホ） */
+@media (max-width: 420px) {
+  .overview-row { grid-template-columns: 100px 1fr; }
+  .overview-row dt { font-size: 12px; padding: 12px 8px; }
+  .overview-row dd { padding: 12px; }
+
+  .cell-main { font-size: 14px; }
+  .cell-note { font-size: 11px; }
+}
+/* =========================
+   Shodo only: hero quote（A案）
+   ========================= */
+.shodo-page .shodo-quote{
+  margin: 6px 0 10px;
+  font-size: 18px;
+  line-height: 1.8;
+  letter-spacing: .06em;
+  color: var(--brown-light);
+
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "Noto Serif JP",
+    serif;
+}
+
+/* 書道：ヒーローコピー強調（太く＆少し濃く） */
+.shodo-page .shodo-quote-strong{
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--brown);  /* brown-light → 少し濃く */
+  letter-spacing: .08em;
+  line-height: 1.9; /* 1.8 → 1.9 */
+}
+
+/* =========================
+   Math only
+   ========================= */
+.math-page .math-lead{
+  margin: 0;
+}
+
+.math-page .math-thoughts{
+  margin: 18px 0;
+  color: rgba(90,70,50,.8); /* brownよりほんの少し薄く */
+  line-height: 1.55;
+  font-weight: 550;
+  letter-spacing: .02em;
+}
+
+/* Mathページの文章余白を少し締める（任意） */
+.math-page .course-hero-prose p{
+  margin: 12px 0;
+}
+
+.math-ticket-grid{
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr;   /* ← ここが重要 */
+}
+
+.math-ticket-item{
+  display: flex;
+  align-items: baseline;
+  gap: 24px;              /* ← ここがポイント */
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(0,0,0,.08);
+}
+
+.math-ticket-item span:first-child{
+  font-weight: 500;      /* ← 400 → 500 */
+  color: var(--brown-dark);
+  letter-spacing: .02em; /* 少し詰める */
+}
+
+.math-ticket-item:last-child{
+  border-bottom: none;
+}
+
+.math-ticket-item span:last-child{
+  font-weight: 600;
+  color: var(--green-dark); /* 既存の緑があれば */
+}
+
+@media (max-width: 420px){
+  .math-ticket-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Guitar only
+   ========================= */
+
+/* 相場比較表：最終的にすべて左揃え（最優先） */
+.course-table--compare thead th {
+  text-align: left !important;
+}
+
+.course-table--compare tbody th.course-table-rowhead {
+  text-align: left;
+  padding-left: 18px;
+}
+
+/* =========================
+   Hero prose（改行崩れ対策：PCは箇条書き風 / SPは連続文）
+   ========================= */
+
+/* 1) 強制改行を無効化（全コース共通）
+   - HTML内の <br> と <span class="sp-br"></span> を“効かせない”
+*/
+.course-hero-prose br,
+.course-hero-prose .sp-br{
+  display: none !important;
+}
+
+/* 2) 文章ブロックは中央寄せ、文字は左揃え（全コース共通） */
+.course-hero-prose{
+  max-width: 38em;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* 書道コースだけ：少し広め（現状踏襲） */
+.shodo-page .course-hero-prose{
+  max-width: 42em;
+}
+
+
+/* 4) SP：連続文にする（書道・Math以外）
+   - <p>をinline化して“つながった文章”に見せる
+   - 箇条書きの「・」は消す
+*/
+@media (max-width: 600px){
+  .course-page:not(.shodo-page):not(.math-page) .course-hero-prose p{
+    display: inline;
+    padding-left: 0;
+  }
+
+  .course-page:not(.shodo-page):not(.math-page) .course-hero-prose p::before{
+    content: none;
+  }
+
+  /* 段落同士の区切りはスペース1つだけ（連続文の見た目） */
+  .course-page:not(.shodo-page):not(.math-page) .course-hero-prose p + p::before{
+    content: " ";
+  }
+}
+
+/* =========================
+   文字の視認性改善（検証用・後勝ち）
+   ========================= */
+
+/* ---------------------------------
+   ① 表：左の項目名（レッスン料金／時間／回数）を強調
+   --------------------------------- */
+.course-table tbody th.course-table-rowhead{
+  font-size: 16px;      /* 項目名を一段大きく */
+  font-weight: 700;     /* もともと700だが明示しておく */
+}
+
+/* ---------------------------------
+   ② ヒーロー本文を濃く・読みやすく
+   --------------------------------- */
+.course-hero-prose p{
+  color: var(--brown-dark); /* brown → brown-dark */
+  font-weight: 500;         /* 少し太くして視認性アップ */
+}
+
+/* ---------------------------------
+   ③ CTA本文を②と同じ濃さ・太さに揃える
+   --------------------------------- */
+.course-cta-lead{
+  color: var(--brown-dark); /* ヒーロー本文と同じ */
+  font-weight: 500;
+}
+
+/* ---------------------------------
+   ④ 表内の注釈（※〜）を濃くする
+   --------------------------------- */
+.cell-note{
+  color: rgba(90,70,50,.82); /* brown-lightより確実に濃い */
+  font-weight: 500;          /* 小さい文字なので太さで補助 */
+}
+
+/* ---------------------------------
+   ⑤ Mathクラブなど、文字量が多いページの
+      ヒーロー文も同じトーンに揃える
+   --------------------------------- */
+.math-page .course-hero-prose p{
+  color: var(--brown-dark);
+  font-weight: 500;
+}
+
+/* =========================
+   縦余白の最適化（検証用・後勝ち）
+   見た目を保ったまま“間延び”を解消
+   ========================= */
+
+/* ---------------------------------
+   ① セクション全体の上下余白を少し詰める
+   --------------------------------- */
+.course-section{
+  padding: 40px 0; /* 48px → 40px */
+}
+
+/* CTAは特に縦が伸びやすいので少しだけ強めに */
+.course-cta{
+  padding: 44px 0; /* 56px → 44px */
+}
+
+/* ---------------------------------
+   ② ヒーロー下の余白を締める
+   --------------------------------- */
+.course-hero{
+  padding: 32px 0 40px; /* 下だけ 56px → 40px */
+}
+
+/* ---------------------------------
+   ③ セクション見出し直下の余白を詰める
+   --------------------------------- */
+.course-section-header{
+  margin-bottom: 20px; /* 28px → 20px */
+}
+
+/* ---------------------------------
+   ④ 表セルの上下パディングを少し詰める
+   （横の余白は維持）
+   --------------------------------- */
+.course-table th,
+.course-table td{
+  padding-top: 14px;    /* 18px → 14px */
+  padding-bottom: 14px; /* 18px → 14px */
+}
+
+/* ---------------------------------
+   ⑤ 表内テキスト同士の縦間隔を微調整
+   --------------------------------- */
+.cell-main + .cell-main{
+  margin-top: 4px; /* デフォより少し詰める */
+}
+
+.cell-note{
+  margin-top: 6px; /* 8px → 6px */
+}
+
+.cell-bonus{
+  margin-top: 8px; /* 10px → 8px */
+}
+
+/* ---------------------------------
+   ⑥ ヒーロー本文内の段落間を少し締める
+   --------------------------------- */
+.course-hero-prose p + p{
+  margin-top: 6px; /* 8px → 6px */
+}
+
+
+/* =========================
+   相場比較表：スマホ最適化
+========================= */
+@media (max-width: 600px){
+
+  .course-table--compare{
+    min-width: 440px; /* 460→440 */
+  }
+
+  .course-table--compare th.course-table-corner{
+    width: 25%;
+  }
+  .course-table--compare th.course-table-col,
+  .course-table--compare td{
+    width: 37.5%;
+  }
+
+  .course-table--compare tbody th.course-table-rowhead{
+    white-space: normal;
+    line-height: 1.35;
+    padding-left: 12px;   /* ここが重要：Guitar only(18px)の打ち消し */
+    padding-right: 12px;
+    font-size: 13px;
+  }
+
+  .course-table--compare th,
+  .course-table--compare td{
+    padding: 10px;
+  }
+
+  .course-table--compare .cell-main{
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 420px){
+  .course-table--compare{ min-width: 430px; } /* 440→430（小型だけさらに少し） */
+
+  .course-table--compare tbody th.course-table-rowhead{
+    font-size: 12.5px;
+  }
+}
+
+
+/* =========================
+   フェードを“右端固定”にする（frame版：完成）
+   ※ HTMLで .course-table-frame を追加した前提
+========================= */
+
+/* 外枠：固定（角丸・枠・影・フェードはここ） */
+.course-table-frame{
+  position: relative;
+  border: 1px solid var(--green-main);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden; /* 角丸内に収める（フェードも含む） */
+}
+
+/* 内側：横スクロール担当（見た目は外枠へ移動） */
+.course-table-frame .course-table-wrap{
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  /* 見た目系は frame に集約 */
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+
+  position: static; /* relative 不要 */
+  clip-path: none;  /* 旧対応が残ってたら無効化 */
+}
+
+/* 右端シャドウ（影っぽいフェード：スクロール誘導） */
+.course-table-frame::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;        /* height:100% より安定 */
+  width: 20px;
+  pointer-events: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: linear-gradient(
+    to left,
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0)
+  );
+  z-index: 2;
+}

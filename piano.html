@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ピアノコース | Lessons room 実のなる木</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- 既存の世界観（style.css）はそのまま利用：変更しない -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- コースページ専用CSS：追加・上書きはここだけ -->
+  <link rel="stylesheet" href="course.css">
+</head>
+<body class="course-page">
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html#top" class="nav-logo" aria-label="トップへ戻る">
+      <img src="logo_header.webp" alt="Lessons room 実のなる木">
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニューを開閉">
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <ul class="nav-menu">
+      <li><a href="index.html#features">選ばれる理由</a></li>
+      <li><a href="index.html#courses">コース一覧</a></li>
+      <li><a href="index.html#teachers">講師紹介</a></li>
+      <li><a href="index.html#access">アクセス</a></li>
+      <li><a href="index.html#line" class="nav-cta">LINEで相談</a></li>
+    </ul>
+
+    <ul class="nav-drawer">
+      <li><a href="index.html#features">選ばれる理由</a></li>
+      <li><a href="index.html#courses">コース一覧</a></li>
+      <li><a href="index.html#teachers">講師紹介</a></li>
+      <li><a href="index.html#access">アクセス</a></li>
+      <li><a href="index.html#line" class="nav-cta">LINEで相談</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  (function () {
+    const toggle = document.getElementById('nav-toggle');
+    const drawer = document.querySelector('.nav-drawer');
+    const burger = document.querySelector('.nav-burger');
+
+    if (!toggle || !drawer || !burger) return;
+
+    burger.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggle.checked = !toggle.checked;
+    });
+
+    drawer.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (!link) return;
+      toggle.checked = false;
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!toggle.checked) return;
+
+      const clickedInsideDrawer = drawer.contains(e.target);
+      const clickedBurger = burger.contains(e.target);
+
+      if (!clickedInsideDrawer && !clickedBurger) {
+        toggle.checked = false;
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) {
+        toggle.checked = false;
+      }
+    });
+  })();
+</script>
+
+
+<main class="course-main">
+
+  <!-- ヒーロー -->
+<header class="course-hero" id="top">
+  <div class="course-container course-hero-inner reveal">
+    <div class="course-hero-text">
+      <p class="section-label">Piano Course</p>
+      <h1 class="course-hero-title">ピアノコース</h1>
+
+      <div class="course-hero-prose">
+        <p>一人ひとりのペースに合わせて、基礎から丁寧にレッスンします。ピアノに初めて触れるお子さまはもちろん、
+          大人になってから始める方や、久しぶりに再開される方も安心して通っていただけます。
+          楽譜が読める力を育てながら「ピアノって楽しい！」を積み重ね、弾いてみたかった一曲にぜひ挑戦してみてください。</p>
+        <!-- <p>楽譜が読める力を育てながら、<span class="sp-br"></span>「ピアノって楽しい」を積み重ねます。</p>
+        <p>はじめての方も久しぶりの方も大丈夫。<span class="sp-br"></span>弾いてみたかった一曲に挑戦してみませんか。</p> -->
+      </div>
+    </div>
+
+    <div class="course-hero-media" aria-label="ピアノコースのイメージ">
+      <figure class="hero-figure">
+        <img src="piano_course.png" alt="ピアノコースのイメージ" class="hero-image">
+      </figure>
+    </div>
+  </div>
+</header>
+
+  <!-- 料金・時間（PC: 表 / スマホ: 縦カード） -->
+  <section class="course-section course-section-alt" id="price">
+    <div class="course-container reveal">
+      <div class="course-section-header">
+        <p class="section-label">Overview</p>
+        <h2 class="section-title">料金・時間</h2>
+      </div>
+
+      <!-- PC/タブレット：比較テーブル -->
+      <div class="course-table-wrap course-only-desktop" role="region" aria-label="料金・時間の表" tabindex="0">
+        <table class="course-table">
+          <thead>
+            <tr>
+              <th class="course-table-corner">項目</th>
+              <th class="course-table-col">子ども（定期レッスン）</th>
+              <th class="course-table-col">大人（自由参加）</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th class="course-table-rowhead">レッスン料金</th>
+              <td>
+                <div class="cell-main">月謝制：5,500円</div>
+                <div class="cell-main">1レッスン30分</div>
+              </td>
+              <td>
+                <div class="cell-main">チケット制：1回 1,700円</div>
+                <div class="cell-main">1レッスン40分</div>
+                <div class="cell-bonus">
+                 チケットを10枚同時に購入すると、1枚おまけがつきます。
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <th class="course-table-rowhead">レッスン時間</th>
+              <td>
+                <div class="cell-main">平日　15:30〜</div>
+                <div class="cell-main">土曜日　9:00〜</div>
+                <div class="cell-note">※対応可能な時間枠は別途ご確認ください。</div>
+              </td>
+              <td>
+                <!-- <div class="cell-main">平日　15:30〜</div> -->
+                <!-- <div class="cell-main">土曜日　9:00〜</div> -->
+                <div class="cell-main">※対応可能な時間枠は別途ご確認ください。</div>
+              </td>
+            </tr>
+
+            <tr>
+              <th class="course-table-rowhead">レッスン回数</th>
+              <td>
+                <div class="cell-main">年間42回（振替レッスン３回まで可能）</div>
+                <div class="cell-note">※年間で回数調整を行うため、月ごとの回数は固定していません。</div>
+              </td>
+              <td>
+                <div class="cell-main">都度自由</div>
+                <div class="cell-note">※対応可能な時間枠は別途ご確認ください。</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- スマホ：縦カード（子ども / 大人） -->
+      <div class="course-overview-mobile course-only-mobile" aria-label="料金・時間（スマホ表示）">
+
+        <article class="overview-card">
+          <h3 class="overview-title">子ども（定期レッスン）</h3>
+
+          <dl class="overview-dl">
+            <div class="overview-row">
+              <dt>レッスン料金</dt>
+              <dd>
+                <div class="cell-main">月謝制：5,500円</div>
+                <div class="cell-main">1レッスン30分</div>
+              </dd>
+            </div>
+
+            <div class="overview-row">
+              <dt>レッスン時間</dt>
+              <dd>
+                <div class="cell-main">平日　15:30〜</div>
+                <div class="cell-main">土曜日　9:00〜</div>
+                <div class="cell-note">※対応可能な時間枠は別途ご確認ください。</div>
+              </dd>
+            </div>
+
+            <div class="overview-row">
+              <dt>レッスン回数</dt>
+              <dd>
+                <div class="cell-main">年間42回（振替レッスン３回まで可能）</div>
+                <div class="cell-note">※年間で回数調整を行うため、月ごとの回数は固定していません。</div>
+              </dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="overview-card">
+          <h3 class="overview-title">大人（自由参加）</h3>
+
+          <dl class="overview-dl">
+            <div class="overview-row">
+              <dt>レッスン料金</dt>
+              <dd>
+                <div class="cell-main">チケット制：1回 1,700円</div>
+                <div class="cell-main">1レッスン40分</div>
+                <div class="cell-bonus">
+                 チケットを10枚同時に購入すると、1枚おまけがつきます。
+                </div>
+              </dd>
+            </div>
+
+            <div class="overview-row">
+              <dt>レッスン時間</dt>
+              <dd>
+                <!-- <div class="cell-main">平日　15:30〜</div> -->
+                <!-- <div class="cell-main">土曜日　9:00〜</div> -->
+                <div class="cell-main">※対応可能な時間枠は別途ご確認ください。</div>
+              </dd>
+            </div>
+
+            <div class="overview-row">
+              <dt>レッスン回数</dt>
+              <dd>
+                <div class="cell-main">都度自由</div>
+                <div class="cell-note">※対応可能な時間枠は別途ご確認ください。</div>
+              </dd>
+            </div>
+          </dl>
+        </article>
+
+      </div>
+
+      <div class="mini-note">
+        <p>※料金・時間枠の詳細は、お気軽にお問い合わせください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 下部CTA -->
+<section class="course-cta">
+  <div class="course-container course-cta-inner reveal">
+    <div class="course-cta-text">
+      <p class="section-label">CONTACT</p>
+      <h2 class="course-cta-title">
+        まずはLINEで<br>
+        相談してみませんか？
+      </h2>
+      <p class="course-cta-lead">
+        無料体験レッスンのことや<br>
+        お子さま・大人の通い方など、<br>
+        気になることがあれば<br>
+        何でもご相談ください。
+      </p>
+    </div>
+    <div class="course-cta-actions">
+      <a href="index.html#line" class="btn-primary">LINEで相談</a>
+      <a href="index.html#courses" class="btn-secondary">コース一覧に戻る</a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <h3>Lessons room 実のなる木</h3>
+        <p>
+          岐阜市南蝉の小さな習い事教室。<br>
+          子どもも大人も、安心して通える場所です。
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>教室について</h4>
+          <ul>
+            <li><a href="index.html#teachers">講師紹介</a></li>
+            <li><a href="index.html#access">アクセス</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>お問い合わせ</h4>
+          <ul>
+            <li><a href="index.html#line">LINEで相談</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        © 2025 Lessons room 実のなる木. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+ <script src="reveal.js" defer></script>
+
+</body>
+</html>

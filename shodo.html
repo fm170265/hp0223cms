@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>書道コース | Lessons room 実のなる木</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- 既存の世界観（style.css）はそのまま利用：変更しない -->
+  <link rel="stylesheet" href="style.css">
+  <!-- コースページ専用CSS（共通） -->
+  <link rel="stylesheet" href="course.css">
+</head>
+
+<body class="course-page shodo-page">
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html#top" class="nav-logo" aria-label="トップへ戻る">
+      <img src="logo_header.webp" alt="Lessons room 実のなる木">
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニューを開閉">
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <ul class="nav-menu">
+      <li><a href="index.html#features">選ばれる理由</a></li>
+      <li><a href="index.html#courses">コース一覧</a></li>
+      <li><a href="index.html#teachers">講師紹介</a></li>
+      <li><a href="index.html#access">アクセス</a></li>
+      <li><a href="index.html#line" class="nav-cta">LINEで相談</a></li>
+    </ul>
+
+    <ul class="nav-drawer">
+      <li><a href="index.html#features">選ばれる理由</a></li>
+      <li><a href="index.html#courses">コース一覧</a></li>
+      <li><a href="index.html#teachers">講師紹介</a></li>
+      <li><a href="index.html#access">アクセス</a></li>
+      <li><a href="index.html#line" class="nav-cta">LINEで相談</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  (function () {
+    const toggle = document.getElementById('nav-toggle');
+    const drawer = document.querySelector('.nav-drawer');
+    const burger = document.querySelector('.nav-burger');
+
+    if (!toggle || !drawer || !burger) return;
+
+    burger.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggle.checked = !toggle.checked;
+    });
+
+    drawer.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (!link) return;
+      toggle.checked = false;
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!toggle.checked) return;
+
+      const clickedInsideDrawer = drawer.contains(e.target);
+      const clickedBurger = burger.contains(e.target);
+
+      if (!clickedInsideDrawer && !clickedBurger) {
+        toggle.checked = false;
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) {
+        toggle.checked = false;
+      }
+    });
+  })();
+</script>
+
+<main class="course-main">
+
+  <!-- ヒーロー -->
+  <header class="course-hero" id="top">
+    <div class="course-container course-hero-inner reveal">
+
+      <div class="course-hero-text">
+        <p class="section-label">Shodo Course</p>
+
+        <h1 class="course-hero-title">書道コース</h1>
+
+        <!-- 書道だけの“先生の言葉”（A案） -->
+        <p class="shodo-quote shodo-quote-strong">〜美しい文字はあなたの魅力となり<br>一生の財産になります〜</p>
+
+        <div class="course-hero-prose">
+  <p>
+    文字を書くことは、集中力や表現力を育てる学びです。
+    お子さまから大人の方まで、一人ひとりのペースや目的に合わせて指導します。
+    はじめての方も「字を書くのが苦手」と感じている方も大丈夫。
+    基礎から丁寧に無理なく続けられる環境です。
+  </p>
+</div>
+      </div>
+
+      <div class="course-hero-media" aria-label="書道コースのイメージ">
+        <figure class="hero-figure">
+          <img src="shodo_course1.webp" alt="書道コースのイメージ" class="hero-image">
+        </figure>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 料金・時間 -->
+  <section class="course-section course-section-alt" id="price">
+    <div class="course-container reveal">
+      <div class="course-section-header">
+        <p class="section-label">Overview</p>
+        <h2 class="section-title">料金・時間</h2>
+      </div>
+
+      <!-- PC：表（子ども／大人） -->
+      <div class="course-table-wrap course-only-desktop" role="region" aria-label="料金・時間の表" tabindex="0">
+        <table class="course-table">
+          <thead>
+            <tr>
+              <th class="course-table-corner">項目</th>
+              <th class="course-table-col">子ども（幼・小・中）</th>
+              <th class="course-table-col">大人</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th class="course-table-rowhead">レッスン料金</th>
+              <td>
+                <div class="cell-main">月謝制（回数制）</div>
+                <div class="cell-body">
+                  月2回：2,000円<br>
+                  月3回：2,800円<br>
+                  月4回：3,600円
+                </div>
+                <div class="cell-note">※1回60分まで／※月2回以上のお稽古必須</div>
+              </td>
+              <td>
+                <div class="cell-main">月1回からOK（1,300円〜）</div>
+                <div class="cell-note">※内容・回数は目的に合わせて調整します</div>
+              </td>
+            </tr>
+
+            <tr>
+              <th class="course-table-rowhead">開講日・時間</th>
+              <td>
+                <div class="cell-main">
+                  月　15:30〜18:30<br>
+                  金　17:00〜18:30<br>
+                  土　9:00〜11:00／15:00〜17:00
+                </div>
+              </td>
+              <td>
+                <div class="cell-main">
+                  水　10:00〜11:30<br>
+                  火・水・金　13:30〜15:00<br>
+                  土　9:00〜11:00／15:00〜17:00
+                </div>
+                <div class="cell-note">※開講日変動／※講師都合の時間帯変更あり</div>
+              </td>
+            </tr>
+
+            <tr>
+              <th class="course-table-rowhead">内容</th>
+              <td>
+                <div class="cell-main">硬筆・毛筆をバランスよく学習</div>
+                <div class="cell-body">
+                  ※希望者のみ競書雑誌購入可（級・段取得ができます）<br>
+                  ※年2〜3回、展覧会に出品
+                </div>
+              </td>
+              <td>
+                <div class="cell-main">目的に合わせた学び</div>
+                <div class="cell-body">
+                  ・のし袋などの実用書道<br>
+                  ・ボールペンなどの硬筆<br>
+                  ・毛筆（漢字・かな）<br>
+                  ・毛筆・硬筆書写検定取得のための学習も対応
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- スマホ：縦カード（子ども / 大人） -->
+      <div class="course-overview-mobile course-only-mobile" aria-label="料金・時間（スマホ表示）">
+
+        <article class="overview-card">
+          <h3 class="overview-title">子ども（幼・小・中）</h3>
+          <dl class="overview-dl">
+            <div class="overview-row">
+              <dt>レッスン料金</dt>
+              <dd>
+                <div class="cell-main">月謝制（回数制）</div>
+                <div class="cell-body">
+                  月2回：2,000円<br>
+                  月3回：2,800円<br>
+                  月4回：3,600円
+                </div>
+                <div class="cell-note">※1回60分まで／※月2回以上のお稽古必須</div>
+              </dd>
+            </div>
+
+            <div class="overview-row">
+              <dt>開講日・時間</dt>
+              <dd>
+                <div class="cell-main">
+                  月　15:30〜18:30<br>
+                  金　17:00〜18:30<br>
+                  土　9:00〜11:00／15:00〜17:00
+                </div>
+              </dd>
+            </div>
+
+            <div class="overview-row">
+              <dt>内容</dt>
+              <dd>
+                <div class="cell-main">硬筆・毛筆をバランスよく学習</div>
+                <div class="cell-note">
+                  ※希望者のみ競書雑誌購入可（級・段取得ができます）<br>
+                  ※年2〜3回、展覧会に出品
+                </div>
+              </dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="overview-card">
+          <h3 class="overview-title">大人</h3>
+          <dl class="overview-dl">
+            <div class="overview-row">
+              <dt>レッスン料金</dt>
+              <dd>
+                <div class="cell-main">月1回からOK（1,300円〜）</div>
+                <div class="cell-note">※内容・回数は目的に合わせて調整します</div>
+              </dd>
+            </div>
+
+            <div class="overview-row">
+              <dt>開講日・時間</dt>
+              <dd>
+                <div class="cell-main">
+                  水　10:00〜11:30<br>
+                  火・水・金　13:30〜15:00<br>
+                  土　9:00〜11:00／15:00〜17:00
+                </div>
+                <div class="cell-note">※開講日変動／※講師都合の時間帯変更あり</div>
+              </dd>
+            </div>
+
+            <div class="overview-row">
+              <dt>内容</dt>
+              <dd>
+                <div class="cell-body">
+                  ・のし袋などの実用書道<br>
+                  ・ボールペンなどの硬筆<br>
+                  ・毛筆（漢字・かな）<br>
+                  ・毛筆・硬筆書写検定取得のための学習も対応
+                </div>
+                <div class="cell-note">※個々の目的やレベルに合わせた指導</div>
+              </dd>
+            </div>
+          </dl>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 下部CTA（共通流用） -->
+  <section class="course-cta">
+    <div class="course-container course-cta-inner reveal">
+      <div class="course-cta-text">
+        <p class="section-label">TRIAL</p>
+        <h2 class="course-cta-title">まずはLINEで<br>相談してみませんか？</h2>
+        <p class="course-cta-lead">
+          無料体験レッスンのことや<br>
+          お子さま・大人の通い方など、<br>
+          気になることがあれば<br>
+          何でもご相談ください。
+        </p>
+      </div>
+      <div class="course-cta-actions">
+        <a href="index.html#line" class="btn-primary">LINEで相談</a>
+        <a href="index.html#courses" class="btn-secondary">コース一覧に戻る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <h3>Lessons room 実のなる木</h3>
+        <p>
+          岐阜市南蝉の小さな習い事教室。<br>
+          子どもも大人も、安心して通える場所です。
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>教室について</h4>
+          <ul>
+            <li><a href="index.html#teachers">講師紹介</a></li>
+            <li><a href="index.html#access">アクセス</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>お問い合わせ</h4>
+          <ul>
+            <li><a href="index.html#line">LINEで相談</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        © 2025 Lessons room 実のなる木. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+<script src="reveal.js" defer></script>
+</body>
+</html>
