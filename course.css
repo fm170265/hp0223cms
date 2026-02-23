@@ -803,3 +803,29 @@
   );
   z-index: 2;
 }
+
+/* =========================================
+   Guitar 相場比較：フェード制御
+   - PC(901px〜)：フェードを出さない
+   - SP：右端までスクロールしたらフェードを消す
+========================================= */
+
+/* 1) PCではフェード自体を消す */
+@media (min-width: 901px){
+  #compare .course-table-frame::after{
+    display: none !important;
+    content: none !important;
+  }
+}
+
+/* 2) SP：右端到達したらフェードを消す（JSが class を付与） */
+@media (max-width: 900px){
+  #compare .course-table-frame.is-scroll-end::after{
+    opacity: 0;
+  }
+
+  /* ふわっと消えると気持ちいい（任意） */
+  #compare .course-table-frame::after{
+    transition: opacity .2s ease;
+  }
+}

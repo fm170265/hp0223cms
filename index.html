@@ -5,6 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lessons room 実のなる木 | 岐阜市の習い事教室</title>
+
+  <!-- ===== Basic SEO ===== -->
+  <meta name="description"
+    content="岐阜市の習い事教室「Lessons room 実のなる木」。ピアノ・ギター・書道・Mathクラブの4コース。一人ひとりのペースを大切に、子どもも大人も安心して通えます。体験は公式LINEで受付中。">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://YOUR_DOMAIN/">
+
+  <!-- ===== OGP (SNS表示) ===== -->
+  <meta property="og:site_name" content="Lessons room 実のなる木">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lessons room 実のなる木 | 岐阜市の習い事教室">
+  <meta property="og:description" content="ピアノ・ギター・書道・Mathクラブの4コース。一人ひとりのペースで楽しく学べます。体験は公式LINEで受付中。">
+  <meta property="og:url" content="https://YOUR_DOMAIN/">
+  <meta property="og:image" content="https://YOUR_DOMAIN/images/ogp/ogp-home.jpg">
+
+  <!-- ===== Twitter ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ===== UI / Icon ===== -->
+  <meta name="theme-color" content="#2f6b4f">
+
+
+  <!-- 追加する2行 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
@@ -37,7 +64,7 @@
         <li><a href="#courses">コース一覧</a></li>
         <li><a href="#teachers">講師紹介</a></li>
         <li><a href="#access">アクセス</a></li>
-        <li><a href="https://lin.ee/QaF0yZy" class="nav-cta">LINEで相談</a></li>
+        <li><a href="https://lin.ee/QaF0yZy" class="nav-cta" target="_blank" rel="noopener noreferrer">LINEで相談</a></li>
       </ul>
 
       <ul class="nav-drawer">
@@ -45,7 +72,7 @@
         <li><a href="#courses">コース一覧</a></li>
         <li><a href="#teachers">講師紹介</a></li>
         <li><a href="#access">アクセス</a></li>
-        <li><a href="https://lin.ee/QaF0yZy" class="nav-cta">LINEで相談</a></li>
+        <li><a href="https://lin.ee/QaF0yZy" class="nav-cta" target="_blank" rel="noopener noreferrer">LINEで相談</a></li>
       </ul>
     </div>
   </nav>
@@ -58,61 +85,30 @@
       それぞれの「好き」を<br>
       ここで育てよう。
     </h1>
-    <!--
+
     <p class="hero-description">
       「できた！」「楽しい！」を大切に、<br class="hero-br">
       一人ひとりのペースで学べます。
-    </p>-->
+    </p>
     <div class="hero-buttons">
-      <a href="https://lin.ee/QaF0yZy" class="btn-primary">LINEで相談</a>
+      <a href="https://lin.ee/QaF0yZy" class="btn-primary" target="_blank" rel="noopener noreferrer">LINEで相談</a>
       <a href="#courses" class="btn-secondary">コース一覧を見る</a>
     </div>
   </section>
 
   <!-- ========== お知らせ（NEWS） ========== -->
-  <section class="news" id="news">
+  <section class="news news--hidden" id="news">
     <div class="news-inner reveal">
       <div class="news-header">
         <p class="section-label">News</p>
         <h2 class="section-title"><span>お知らせ</span></h2>
       </div>
 
-      <div class="news-grid">
-        <!-- NEWS CARD（CMS化したらここが複製される想定） -->
-        <article class="news-card">
-          <div class="news-card-media">
-            <img src="shodo_course.png" alt="親子リズム教室『ずむずむ®』のイメージ" loading="lazy">
-          </div>
-
-          <div class="news-card-body">
-            <p class="news-date">2025.01</p>
-            <h3 class="news-title">親子リズム教室「ずむずむ®」開講準備中！</h3>
-            <p class="news-text">
-              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。 
-              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。 
-              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。
-            </p>
-          </div>
-        </article>
-        <!-- <article class="news-card">
-          <div class="news-card-media">
-            <img src="photo-zumuzumu.png" alt="親子リズム教室『ずむずむ®』のイメージ" loading="lazy">
-          </div>
-
-          <div class="news-card-body">
-            <p class="news-date">2025.01</p>
-            <h3 class="news-title">親子リズム教室「ずむずむ®」開講準備中！</h3>
-            <p class="news-text">
-              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。 
-              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。 
-              岐阜市で初めての認定教室として、0〜3歳の親子リズム教室を開講予定です。
-            </p>
-          </div>
-        </article> -->
-      </div>
+      <!-- JSでここに最大2件を描画 -->
+      <div class="news-grid" id="newsGrid"></div>
     </div>
   </section>
-  
+
   <!-- ========== コース紹介 ========== -->
   <section class="courses" id="courses">
     <div class="courses-inner reveal">
@@ -122,7 +118,7 @@
       </div>
       <div class="courses-grid">
         <a href="piano.html" class="course-card">
-          <img src="piano_course.png" alt="ピアノ教室 - 幼児から大人まで対応" class="course-card-img">
+          <img src="piano_course.png" alt="ピアノ教室 - 幼児から大人まで対応" class="course-card-img" loading="lazy">
           <div class="course-card-content">
             <h3>ピアノ</h3>
             <p>幼児〜大人</p>
@@ -130,7 +126,7 @@
           </div>
         </a>
         <a href="guitar.html" class="course-card">
-          <img src="guitar_course.png" alt="ギター教室 - 初心者から中級者まで" class="course-card-img">
+          <img src="guitar_course.png" alt="ギター教室 - 初心者から中級者まで" class="course-card-img" loading="lazy">
           <div class="course-card-content">
             <h3>ギター</h3>
             <p>初心者〜中級</p>
@@ -138,7 +134,7 @@
           </div>
         </a>
         <a href="shodo.html" class="course-card">
-          <img src="shodo_course1.webp" alt="書道教室 - こども・大人" class="course-card-img">
+          <img src="shodo_course1.webp" alt="書道教室 - こども・大人" class="course-card-img" loading="lazy">
           <div class="course-card-content">
             <h3>書道</h3>
             <p>こども・大人</p>
@@ -146,7 +142,7 @@
           </div>
         </a>
         <a href="math.html" class="course-card">
-          <img src="math_course.png" alt="Mathクラブ - 小学生・中学生向け算数教室" class="course-card-img">
+          <img src="math_course.png" alt="Mathクラブ - 小学生・中学生向け算数教室" class="course-card-img" loading="lazy">
           <div class="course-card-content">
             <h3>Mathクラブ</h3>
             <p>小学生・中学生</p>
@@ -223,25 +219,25 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="images/gallery/gallery-piano.webp" alt="ピアノ教室のレッスン風景">
+              <img src="images/gallery/gallery-piano.webp" alt="ピアノ教室のレッスン風景" loading="lazy">
             </div>
           </div>
 
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="images/gallery/gallery-guitar.webp" alt="ギター教室のレッスン風景">
+              <img src="images/gallery/gallery-guitar.webp" alt="ギター教室のレッスン風景" loading="lazy">
             </div>
           </div>
 
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="images/gallery/gallery-shodo.webp" alt="書道教室のレッスン風景">
+              <img src="images/gallery/gallery-shodo.webp" alt="書道教室のレッスン風景" loading="lazy">
             </div>
           </div>
 
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="images/gallery/gallery-shodo-lesson.webp" alt="書道教室のレッスン風景">
+              <img src="images/gallery/gallery-shodo-lesson.webp" alt="書道教室のレッスン風景" loading="lazy">
             </div>
           </div>
         </div>
@@ -261,7 +257,7 @@
 
       <div class="teachers-grid">
         <div class="teacher-card">
-          <img src="images/teachers/usui.jpg" alt="臼井先生 - ピアノ講師" class="teacher-photo">
+          <img src="images/teachers/usui.jpg" alt="臼井先生 - ピアノ講師" class="teacher-photo" loading="lazy">
           <div class="teacher-info">
             <h3>臼井 先生</h3>
             <p class="subject"><i class="fa-solid fa-music" aria-hidden="true"></i>ピアノ</p>
@@ -276,7 +272,7 @@
         </div>
 
         <div class="teacher-card">
-          <img src="images/teachers/kisumi.jpg" alt="来住先生 - ピアノ講師" class="teacher-photo">
+          <img src="images/teachers/kisumi.jpg" alt="来住先生 - ピアノ講師" class="teacher-photo" loading="lazy">
           <div class="teacher-info">
             <h3>来住 先生</h3>
             <p class="subject"><i class="fa-solid fa-music" aria-hidden="true"></i>ピアノ</p>
@@ -291,7 +287,7 @@
         </div>
 
         <div class="teacher-card">
-          <img src="images/teachers/masaki.jpg" alt="まさき先生 - ギター講師" class="teacher-photo">
+          <img src="images/teachers/masaki.jpg" alt="まさき先生 - ギター講師" class="teacher-photo" loading="lazy">
           <div class="teacher-info">
             <h3>まさき 先生</h3>
             <p class="subject"><i class="fa-solid fa-guitar" aria-hidden="true"></i>ギター</p>
@@ -306,7 +302,7 @@
         </div>
 
         <div class="teacher-card">
-          <img src="images/teachers/oota.png" alt="太田先生 - 書道講師" class="teacher-photo">
+          <img src="images/teachers/oota.png" alt="太田先生 - 書道講師" class="teacher-photo" loading="lazy">
           <div class="teacher-info">
             <h3>太田 先生</h3>
             <p class="subject"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i>書道</p>
@@ -321,7 +317,7 @@
         </div>
 
         <div class="teacher-card">
-          <img src="images/teachers/michiko.jpg" alt="みちこ先生 - Mathクラブ講師" class="teacher-photo">
+          <img src="images/teachers/michiko.jpg" alt="みちこ先生 - Mathクラブ講師" class="teacher-photo" loading="lazy">
           <div class="teacher-info">
             <h3>みちこ 先生</h3>
             <p class="subject"><i class="fa-solid fa-calculator" aria-hidden="true"></i>Mathクラブ</p>
@@ -385,7 +381,7 @@
               下記の連絡先からお気軽にご相談ください。
             </p>
 
-            <a id="line" href="https://lin.ee/QaF0yZy" class="btn-contact">
+            <a id="line" href="https://lin.ee/QaF0yZy" class="btn-contact" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-line" aria-hidden="true"></i>
               LINEで相談
             </a>
@@ -451,7 +447,11 @@
           <div>
             <h4>お問い合わせ</h4>
             <ul>
-              <li><a href="index.html#line">LINEで相談</a></li>
+              <li>
+                <a href="https://lin.ee/QaF0yZy" target="_blank" rel="noopener noreferrer">
+                  LINEで相談
+                </a>
+              </li>
               <li><a href="mailto:minonaruki.official@gmail.com">メール</a></li>
               <li><a href="tel:09070309355">電話</a></li>
             </ul>
@@ -530,14 +530,22 @@
         gallerySwiper = new Swiper(el, {
           loop: true,
           centeredSlides: true,
-          slidesPerView: 1.15,
+
+          // ★ここが核心：CSSの .swiper-slide 幅を採用させる
+          slidesPerView: "auto",
+
           spaceBetween: 14,
+
+          // 体感の「急」を抑える（350だとキビキビすぎる）
+          speed: 550,
+
+          // 抵抗感を減らす（loopでも初回ズレ時に効いちゃうことがある）
+          resistanceRatio: 0.6,
 
           watchOverflow: true,
           preloadImages: false,
           updateOnImagesReady: true,
 
-          // DOM表示/レイアウト変化追従（revealとの相性）
           observer: true,
           observeParents: true,
 
@@ -548,21 +556,12 @@
 
           on: {
             init(swiper) {
-              swiper.update();
-
+              // 初回だけ「2フレーム後」にもう一度 update（初期チラ見せ安定）
               requestAnimationFrame(() => {
-                swiper.slideToLoop(0, 0, false);
-                swiper.update();
+                requestAnimationFrame(() => swiper.update());
               });
-
-              setTimeout(() => {
-                swiper.slideToLoop(0, 0, false);
-                swiper.update();
-              }, 80);
             },
-
             imagesReady(swiper) {
-              swiper.slideToLoop(0, 0, false);
               swiper.update();
             },
           },
@@ -579,8 +578,8 @@
       }
     }
 
-    // ★loadで作らない（リロード直後ズレの原因）
-    // window.addEventListener("load", setupGallerySwiper);
+    // 初回（ここだけで作る）
+    document.addEventListener("DOMContentLoaded", setupGallerySwiper);
 
     // SP↔PC切替だけ対応
     window.addEventListener("resize", setupGallerySwiper);
@@ -595,10 +594,6 @@
       // 古い環境対策：Observerがなければ即表示
       if (!('IntersectionObserver' in window)) {
         targets.forEach(el => el.classList.add('is-visible'));
-        // Galleryがあるなら一応初期化（古い環境用）
-        if (document.querySelector('.gallery-swiper')) {
-          setupGallerySwiper();
-        }
         return;
       }
 
@@ -607,28 +602,7 @@
           if (!entry.isIntersecting) return;
 
           entry.target.classList.add('is-visible');
-
-          // ★ Galleryが見えた瞬間にSwiperを作る（これが根本）
-          if (entry.target.querySelector && entry.target.querySelector('.gallery-swiper')) {
-            setupGallerySwiper();
-
-            // 念のため補正（デバイスモードのリロード直後対策）
-            requestAnimationFrame(() => {
-              if (window.gallerySwiper) {
-                window.gallerySwiper.slideToLoop(0, 0, false);
-                window.gallerySwiper.update();
-              }
-            });
-
-            setTimeout(() => {
-              if (window.gallerySwiper) {
-                window.gallerySwiper.slideToLoop(0, 0, false);
-                window.gallerySwiper.update();
-              }
-            }, 80);
-          }
-
-          obs.unobserve(entry.target); // 一度出たら固定
+          obs.unobserve(entry.target);
         });
       }, { rootMargin: '0px 0px -80px 0px' });
 
@@ -637,12 +611,75 @@
   </script>
 
   <!-- ★ ここに追加 -->
+
+  <!-- ★ news取得JS -->
   <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      if (window.matchMedia("(min-width: 601px)").matches) {
-        setupGallerySwiper();
+    (async function renderNews() {
+      const section = document.getElementById("news");
+      const grid = document.getElementById("newsGrid");
+      if (!section || !grid) return;
+
+      try {
+        const res = await fetch("/.netlify/functions/news?limit=10", { cache: "no-store" });
+        if (!res.ok) throw new Error("Failed to fetch news: " + res.status);
+
+        const data = await res.json();
+        const items = Array.isArray(data.items) ? data.items : [];
+
+        // isActive === true のみ表示
+        const activeItems = items
+          .filter(item => item && item.isActive === true)
+          // publishedAt 新しい順
+          .sort((a, b) => (b.publishedAt || "").localeCompare(a.publishedAt || ""))
+          // 最大2件
+          .slice(0, 2);
+
+        // 0件ならセクションは出さない（初期状態の news--hidden のまま）
+        if (activeItems.length === 0) return;
+
+        // 描画（MicroCMSの改行は今は反映しない：\n をスペース扱い）
+        grid.innerHTML = "";
+        activeItems.forEach(item => {
+          const article = document.createElement("article");
+          article.className = "news-card";
+
+          const imgUrl = item.image?.url || "";
+          const dateLabel = item.dateLabel || "";
+          const title = item.title || "";
+          const body = (item.body || "").replace(/\n+/g, " "); // ←改行を無視
+
+          article.innerHTML = `
+          <div class="news-card-media">
+            ${imgUrl ? `<img src="${imgUrl}" alt="${escapeHtml(title)}" loading="lazy">` : ""}
+          </div>
+          <div class="news-card-body">
+            ${dateLabel ? `<p class="news-date">${escapeHtml(dateLabel)}</p>` : ""}
+            ${title ? `<h3 class="news-title">${escapeHtml(title)}</h3>` : ""}
+            ${body ? `<p class="news-text">${escapeHtml(body)}</p>` : ""}
+          </div>
+        `;
+
+          grid.appendChild(article);
+        });
+
+        // 表示ON
+        section.classList.remove("news--hidden");
+      } catch (e) {
+        // 失敗時は非表示のまま（運用的に安全）
+        console.warn(e);
       }
-    });
+
+      function escapeHtml(str) {
+        return String(str).replace(/[&<>"']/g, s => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        }[s]));
+      }
+    })();
   </script>
 </body>
+
 </html>

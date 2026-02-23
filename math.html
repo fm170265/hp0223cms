@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mathクラブ | Lessons room 実のなる木</title>
 
+  <!-- ===== Basic SEO ===== -->
+  <meta name="description"
+    content="岐阜市の習い事教室「Lessons room 実のなる木」Mathクラブ。小・中学生対象。ガチガチな塾が苦手でも大丈夫。つまずいている所や伸ばしたい所から、一人ひとりの理解に合わせて丁寧にサポートします。">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://YOUR_DOMAIN/math.html">
+
+  <!-- ===== OGP (SNS表示) ===== -->
+  <meta property="og:site_name" content="Lessons room 実のなる木">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Mathクラブ | Lessons room 実のなる木">
+  <meta property="og:description" content="小・中学生対象。つまずきや苦手をそのままにせず、一人ひとりの理解に合わせて楽しく学べます。">
+  <meta property="og:url" content="https://YOUR_DOMAIN/math.html">
+  <meta property="og:image" content="https://YOUR_DOMAIN/images/ogp/ogp-home.jpg">
+
+  <!-- ===== Twitter ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ===== UI / Icon ===== -->
+  <meta name="theme-color" content="#2f6b4f">
+  <!-- 追加する2行 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- 既存の世界観（style.css）はそのまま利用：変更しない -->
@@ -15,297 +39,316 @@
 
 <body class="course-page math-page">
 
-<nav>
-  <div class="nav-container">
-    <a href="index.html#top" class="nav-logo" aria-label="トップへ戻る">
-      <img src="logo_header.webp" alt="Lessons room 実のなる木">
-    </a>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html#top" class="nav-logo" aria-label="トップへ戻る">
+        <img src="logo_header.webp" alt="Lessons room 実のなる木">
+      </a>
 
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニューを開閉">
-    <label for="nav-toggle" class="nav-burger" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニューを開閉">
+      <label for="nav-toggle" class="nav-burger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-    <ul class="nav-menu">
-      <li><a href="index.html#features">選ばれる理由</a></li>
-      <li><a href="index.html#courses">コース一覧</a></li>
-      <li><a href="index.html#teachers">講師紹介</a></li>
-      <li><a href="index.html#access">アクセス</a></li>
-      <li><a href="index.html#line" class="nav-cta">LINEで相談</a></li>
-    </ul>
+      <ul class="nav-menu">
+        <li><a href="index.html#features">選ばれる理由</a></li>
+        <li><a href="index.html#courses">コース一覧</a></li>
+        <li><a href="index.html#teachers">講師紹介</a></li>
+        <li><a href="index.html#access">アクセス</a></li>
+        <li>
+          <a class="nav-cta" href="https://lin.ee/QaF0yZy" target="_blank" rel="noopener noreferrer">
+            LINEで相談
+          </a>
+        </li>
+      </ul>
 
-    <ul class="nav-drawer">
-      <li><a href="index.html#features">選ばれる理由</a></li>
-      <li><a href="index.html#courses">コース一覧</a></li>
-      <li><a href="index.html#teachers">講師紹介</a></li>
-      <li><a href="index.html#access">アクセス</a></li>
-      <li><a href="index.html#line" class="nav-cta">LINEで相談</a></li>
-    </ul>
-  </div>
-</nav>
+      <ul class="nav-drawer">
+        <li><a href="index.html#features">選ばれる理由</a></li>
+        <li><a href="index.html#courses">コース一覧</a></li>
+        <li><a href="index.html#teachers">講師紹介</a></li>
+        <li><a href="index.html#access">アクセス</a></li>
+        <li>
+          <a class="nav-cta" href="https://lin.ee/QaF0yZy" target="_blank" rel="noopener noreferrer">
+            LINEで相談
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-<script>
-  (function () {
-    const toggle = document.getElementById('nav-toggle');
-    const drawer = document.querySelector('.nav-drawer');
-    const burger = document.querySelector('.nav-burger');
+  <script>
+    (function () {
+      const toggle = document.getElementById('nav-toggle');
+      const drawer = document.querySelector('.nav-drawer');
+      const burger = document.querySelector('.nav-burger');
 
-    if (!toggle || !drawer || !burger) return;
+      if (!toggle || !drawer || !burger) return;
 
-    burger.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      toggle.checked = !toggle.checked;
-    });
+      burger.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggle.checked = !toggle.checked;
+      });
 
-    drawer.addEventListener('click', function (e) {
-      const link = e.target.closest('a');
-      if (!link) return;
-      toggle.checked = false;
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!toggle.checked) return;
-
-      const clickedInsideDrawer = drawer.contains(e.target);
-      const clickedBurger = burger.contains(e.target);
-
-      if (!clickedInsideDrawer && !clickedBurger) {
+      drawer.addEventListener('click', function (e) {
+        const link = e.target.closest('a');
+        if (!link) return;
         toggle.checked = false;
-      }
-    });
+      });
 
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 900) {
-        toggle.checked = false;
-      }
-    });
-  })();
-</script>
+      document.addEventListener('click', function (e) {
+        if (!toggle.checked) return;
 
-<main class="course-main">
+        const clickedInsideDrawer = drawer.contains(e.target);
+        const clickedBurger = burger.contains(e.target);
 
-  <!-- ヒーロー -->
-  <header class="course-hero" id="top">
-    <div class="course-container course-hero-inner reveal">
+        if (!clickedInsideDrawer && !clickedBurger) {
+          toggle.checked = false;
+        }
+      });
 
-      <div class="course-hero-media" aria-label="Mathクラブのイメージ">
-        <figure class="hero-figure">
-          <img src="math_course.png" alt="Mathクラブのイメージ" class="hero-image">
-        </figure>
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 900) {
+          toggle.checked = false;
+        }
+      });
+    })();
+  </script>
+
+  <main class="course-main">
+
+    <!-- ヒーロー -->
+    <header class="course-hero" id="top">
+      <div class="course-container course-hero-inner reveal">
+
+        <div class="course-hero-media" aria-label="Mathクラブのイメージ">
+          <figure class="hero-figure">
+            <img src="math_course.png" alt="Mathクラブのイメージ" class="hero-image">
+          </figure>
+        </div>
+
+        <div class="course-hero-text">
+          <p class="section-label">Math Club</p>
+          <h1 class="course-hero-title">Mathクラブ</h1>
+
+          <div class="course-hero-prose">
+            <p class="math-lead">
+              小・中学生を対象に、算数・数学の問題を楽しく解くクラブです。<br>
+              ガチガチ、みっちり型の塾が苦手な方も大丈夫。<br>
+              一人ひとりのペースに合わせて、無理なく学べます。
+            </p>
+
+            <p class="math-thoughts">
+              「分からないところを分かるようにしたい」<br>
+              「学校の授業と同じところをじっくり勉強したい」<br>
+              「少し先の内容にも余裕をもって取り組んでみたい」
+            </p>
+
+            <p>
+              Mathクラブはそんな思いを大切にしています。<br>
+              決まった進度に合わせるのではなく、<br>
+              今つまずいているところや伸ばしたいところから学びます。
+            </p>
+          </div>
+        </div>
       </div>
+    </header>
 
-      <div class="course-hero-text">
-        <p class="section-label">Math Club</p>
-        <h1 class="course-hero-title">Mathクラブ</h1>
+    <!-- 料金・時間 -->
+    <section class="course-section course-section-alt" id="price">
+      <div class="course-container reveal">
+        <div class="course-section-header">
+          <p class="section-label">Overview</p>
+          <h2 class="section-title">料金・時間</h2>
+        </div>
 
-         <div class="course-hero-prose">
-          <p class="math-lead">
-           小・中学生を対象に、算数・数学の問題を楽しく解くクラブです。<br>
-           ガチガチ、みっちり型の塾が苦手な方も大丈夫。<br>
-           一人ひとりのペースに合わせて、無理なく学べます。
+        <!-- PC：2列テーブル（項目 / 内容） -->
+        <div class="course-table-wrap course-only-desktop" role="region" aria-label="料金・時間の表" tabindex="0">
+          <table class="course-table course-table--two-col">
+            <thead>
+              <tr>
+                <th class="course-table-corner">項目</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th class="course-table-rowhead">対象</th>
+                <td>
+                  <div class="cell-main">小学生・中学生</div>
+                </td>
+              </tr>
+
+              <tr>
+                <th class="course-table-rowhead">活動日</th>
+                <td>
+                  <div class="cell-main">（月）〜（木）19:00〜 ／ （水）15:30〜</div>
+                </td>
+              </tr>
+
+              <tr>
+                <th class="course-table-rowhead">料金</th>
+                <td>
+                  <div class="cell-main">チケット制（学習時間に応じて選べます）</div>
+                  <div class="cell-body">
+                    ※チケットを10枚まとめてご購入いただくと、1枚おまけでついてきます。
+                  </div>
+
+                  <div class="math-ticket-grid" aria-label="チケット料金">
+                    <div class="math-ticket-item"><span>30分</span><span>600円</span></div>
+                    <div class="math-ticket-item"><span>40分</span><span>700円</span></div>
+                    <div class="math-ticket-item"><span>50分</span><span>800円</span></div>
+                    <div class="math-ticket-item"><span>60分</span><span>900円</span></div>
+                    <div class="math-ticket-item"><span>70分</span><span>1,000円</span></div>
+                  </div>
+
+                  <div class="cell-note">※通常は少人数制でレッスンを行っています。</div>
+                  <div class="cell-note">※マンツーマンをご希望の場合は、チケットを2枚使用します。</div>
+                </td>
+              </tr>
+
+              <tr>
+                <th class="course-table-rowhead">学習内容</th>
+                <td>
+                  <div class="cell-main">プリント教材＋学校教材の質問対応</div>
+                  <div class="cell-body">
+                    一人ひとりの要望に応えるプリント教材を使用します。<br>
+                    学校教材・プリントの質問にも対応します。
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <!-- スマホ：縦カード（項目列デザイン維持） -->
+        <div class="course-overview-mobile course-only-mobile" aria-label="料金・時間（スマホ表示）">
+          <article class="overview-card">
+            <h3 class="overview-title">Mathクラブ</h3>
+            <dl class="overview-dl">
+              <div class="overview-row">
+                <dt>対象</dt>
+                <dd>
+                  <div class="cell-main">小学生・中学生</div>
+                </dd>
+              </div>
+
+              <div class="overview-row">
+                <dt>活動日</dt>
+                <dd>
+                  <div class="cell-main">（月）〜（木）19:00〜 ／ （水）15:30〜</div>
+                </dd>
+              </div>
+
+              <div class="overview-row">
+                <dt>料金</dt>
+                <dd>
+                  <div class="cell-main">チケット制（学習時間に応じて選べます）</div>
+                  <div class="cell-body">
+                    ※チケットを10枚まとめてご購入いただくと、1枚おまけでついてきます。
+                  </div>
+
+                  <div class="math-ticket-grid" aria-label="チケット料金">
+                    <div class="math-ticket-item"><span>30分</span><span>600円</span></div>
+                    <div class="math-ticket-item"><span>40分</span><span>700円</span></div>
+                    <div class="math-ticket-item"><span>50分</span><span>800円</span></div>
+                    <div class="math-ticket-item"><span>60分</span><span>900円</span></div>
+                    <div class="math-ticket-item"><span>70分</span><span>1,000円</span></div>
+                  </div>
+
+                  <div class="cell-note">※通常は少人数制でレッスンを行っています。</div>
+                  <div class="cell-note">※マンツーマンをご希望の場合は、チケットを2枚使用します。</div>
+                </dd>
+              </div>
+
+              <div class="overview-row">
+                <dt>学習内容</dt>
+                <dd>
+                  <div class="cell-main">プリント教材＋学校教材の質問対応</div>
+                  <div class="cell-body">
+                    一人ひとりの要望に応えるプリント教材を使用します。<br>
+                    学校教材・プリントの質問にも対応します。
+                  </div>
+                </dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 下部CTA（共通流用） -->
+    <section class="course-cta">
+      <div class="course-container course-cta-inner reveal">
+        <div class="course-cta-text">
+          <p class="section-label">TRIAL</p>
+          <h2 class="course-cta-title">まずはLINEで<br>相談してみませんか？</h2>
+          <p class="course-cta-lead">
+            無料体験レッスンのことや<br>
+            お子さま・大人の通い方など、<br>
+            気になることがあれば<br>
+            何でもご相談ください。
           </p>
-
-         <p class="math-thoughts">
-          「分からないところを分かるようにしたい」<br>
-          「学校の授業と同じところをじっくり勉強したい」<br>
-          「少し先の内容にも余裕をもって取り組んでみたい」
-         </p>
-
-         <p>
-           Mathクラブはそんな思いを大切にしています。<br>
-           決まった進度に合わせるのではなく、<br>
-           今つまずいているところや伸ばしたいところから学びます。
-         </p>
+        </div>
+        <div class="course-cta-actions">
+          <a class="btn-primary" href="https://lin.ee/QaF0yZy" target="_blank" rel="noopener noreferrer">
+            LINEで相談
+          </a>
+          <a href="index.html#courses" class="btn-secondary">コース一覧に戻る</a>
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- 料金・時間 -->
-  <section class="course-section course-section-alt" id="price">
-    <div class="course-container reveal">
-      <div class="course-section-header">
-        <p class="section-label">Overview</p>
-        <h2 class="section-title">料金・時間</h2>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-main">
+
+        <div class="footer-brand">
+          <h3>Lessons room 実のなる木</h3>
+          <p>
+            岐阜市南蝉の小さな習い事教室。<br>
+            子どもも大人も、安心して通える場所です。
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h4>教室について</h4>
+            <ul>
+              <li><a href="index.html#teachers">講師紹介</a></li>
+              <li><a href="index.html#access">アクセス</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>お問い合わせ</h4>
+            <ul>
+              <li>
+                <a href="https://lin.ee/QaF0yZy" target="_blank" rel="noopener noreferrer">
+                  LINEで相談
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
 
-      <!-- PC：2列テーブル（項目 / 内容） -->
-      <div class="course-table-wrap course-only-desktop" role="region" aria-label="料金・時間の表" tabindex="0">
-        <table class="course-table course-table--two-col">
-          <thead>
-            <tr>
-              <th class="course-table-corner">項目</th>
-              <th>内容</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <th class="course-table-rowhead">対象</th>
-              <td>
-                <div class="cell-main">小学生・中学生</div>
-              </td>
-            </tr>
-
-            <tr>
-              <th class="course-table-rowhead">活動日</th>
-              <td>
-                <div class="cell-main">（月）〜（木）19:00〜 ／ （水）15:30〜</div>
-              </td>
-            </tr>
-
-            <tr>
-              <th class="course-table-rowhead">料金</th>
-              <td>
-                <div class="cell-main">チケット制（学習時間に応じて選べます）</div>
-                <div class="cell-body">
-                 ※チケットを10枚まとめてご購入いただくと、1枚おまけでついてきます。
-                </div>
-
-                <div class="math-ticket-grid" aria-label="チケット料金">
-                  <div class="math-ticket-item"><span>30分</span><span>600円</span></div>
-                  <div class="math-ticket-item"><span>40分</span><span>700円</span></div>
-                  <div class="math-ticket-item"><span>50分</span><span>800円</span></div>
-                  <div class="math-ticket-item"><span>60分</span><span>900円</span></div>
-                  <div class="math-ticket-item"><span>70分</span><span>1,000円</span></div>
-                </div>
-
-                <div class="cell-note">※通常は少人数制でレッスンを行っています。</div>
-                <div class="cell-note">※マンツーマンをご希望の場合は、チケットを2枚使用します。</div>
-              </td>
-            </tr>
-
-            <tr>
-              <th class="course-table-rowhead">学習内容</th>
-              <td>
-                <div class="cell-main">プリント教材＋学校教材の質問対応</div>
-                <div class="cell-body">
-                  一人ひとりの要望に応えるプリント教材を使用します。<br>
-                  学校教材・プリントの質問にも対応します。
-                </div>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-
-      <!-- スマホ：縦カード（項目列デザイン維持） -->
-      <div class="course-overview-mobile course-only-mobile" aria-label="料金・時間（スマホ表示）">
-        <article class="overview-card">
-          <h3 class="overview-title">Mathクラブ</h3>
-          <dl class="overview-dl">
-            <div class="overview-row">
-              <dt>対象</dt>
-              <dd><div class="cell-main">小学生・中学生</div></dd>
-            </div>
-
-            <div class="overview-row">
-              <dt>活動日</dt>
-              <dd><div class="cell-main">（月）〜（木）19:00〜 ／ （水）15:30〜</div></dd>
-            </div>
-
-            <div class="overview-row">
-              <dt>料金</dt>
-              <dd>
-                <div class="cell-main">チケット制（学習時間に応じて選べます）</div>
-                <div class="cell-body">
-                 ※チケットを10枚まとめてご購入いただくと、1枚おまけでついてきます。
-                </div>
-
-                <div class="math-ticket-grid" aria-label="チケット料金">
-                  <div class="math-ticket-item"><span>30分</span><span>600円</span></div>
-                  <div class="math-ticket-item"><span>40分</span><span>700円</span></div>
-                  <div class="math-ticket-item"><span>50分</span><span>800円</span></div>
-                  <div class="math-ticket-item"><span>60分</span><span>900円</span></div>
-                  <div class="math-ticket-item"><span>70分</span><span>1,000円</span></div>
-                </div>
-
-                <div class="cell-note">※通常は少人数制でレッスンを行っています。</div>
-                <div class="cell-note">※マンツーマンをご希望の場合は、チケットを2枚使用します。</div>
-              </dd>
-            </div>
-
-            <div class="overview-row">
-              <dt>学習内容</dt>
-              <dd>
-                <div class="cell-main">プリント教材＋学校教材の質問対応</div>
-                <div class="cell-body">
-                  一人ひとりの要望に応えるプリント教材を使用します。<br>
-                  学校教材・プリントの質問にも対応します。
-                </div>
-              </dd>
-            </div>
-          </dl>
-        </article>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 下部CTA（共通流用） -->
-  <section class="course-cta">
-    <div class="course-container course-cta-inner reveal">
-      <div class="course-cta-text">
-        <p class="section-label">TRIAL</p>
-        <h2 class="course-cta-title">まずはLINEで<br>相談してみませんか？</h2>
-        <p class="course-cta-lead">
-          無料体験レッスンのことや<br>
-          お子さま・大人の通い方など、<br>
-          気になることがあれば<br>
-          何でもご相談ください。
+      <div class="footer-bottom">
+        <p class="copyright">
+          © 2025 Lessons room 実のなる木. All rights reserved.
         </p>
       </div>
-      <div class="course-cta-actions">
-        <a href="index.html#line" class="btn-primary">LINEで相談</a>
-        <a href="index.html#courses" class="btn-secondary">コース一覧に戻る</a>
-      </div>
     </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-main">
-
-      <div class="footer-brand">
-        <h3>Lessons room 実のなる木</h3>
-        <p>
-          岐阜市南蝉の小さな習い事教室。<br>
-          子どもも大人も、安心して通える場所です。
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <div>
-          <h4>教室について</h4>
-          <ul>
-            <li><a href="index.html#teachers">講師紹介</a></li>
-            <li><a href="index.html#access">アクセス</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>お問い合わせ</h4>
-          <ul>
-            <li><a href="index.html#line">LINEで相談</a></li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <p class="copyright">
-        © 2025 Lessons room 実のなる木. All rights reserved.
-      </p>
-    </div>
-  </div>
-</footer>
-<script src="reveal.js" defer></script>
+  </footer>
+  <script src="reveal.js" defer></script>
 </body>
+
 </html>

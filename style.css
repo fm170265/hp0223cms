@@ -1576,172 +1576,6 @@ nav {
   box-shadow: 0 2px 8px rgba(0,0,0,.04); /* 影を弱める（板感カット） */
 }
 
-/* =========================
-   Gallery：Swiper（SPはカルーセル / PCは4列）
-========================= */
-
-/* PC：4枚横並び（動きなし） */
-.gallery-swiper {
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-@media (min-width: 601px) {
-  .gallery-swiper .swiper-wrapper {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-
-  .gallery-swiper .swiper-slide {
-    width: auto !important;
-  }
-
-  .gallery-swiper .swiper-pagination {
-    display: none;
-  }
-}
-
-/* SP：中央1枚＋左右チラ見え＋ドット */
-@media (max-width: 600px) {
-  .gallery-swiper {
-    padding-bottom: 26px; /* ドット分 */
-  }
-
-  /* スライドの中身は既存の見た目を活かす */
-  .gallery-swiper .swiper-slide .gallery-item {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-  }
-
-  /* ドット見た目 */
-  .gallery-swiper .swiper-pagination {
-    bottom: 6px;
-  }
-}
-
-/* Swiperでも.gallery-itemの見た目を維持 */
-.gallery-swiper .gallery-item{
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s;
-}
-
-.gallery-swiper .gallery-item:hover{
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-
-/* Swiper用：画像高さを統一（SPで気持ちいい高さに） */
-@media (max-width: 600px){
-  .gallery-swiper .gallery-item img{
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    display: block;
-  }
-}
-
-/* SP：左右チラ見えを確実に見せる（Swiperのはみ出しを許可） */
-@media (max-width: 600px){
-  .gallery-swiper{
-    overflow: visible;
-  }
-}
-
-/* ===== Swiper：SP 左右チラ見せを有効にする上書き ===== */
-@media (max-width: 600px) {
-
-  /* コンテナをはみ出し可にする（←最重要） */
-  .gallery-swiper{
-    overflow: visible;
-    padding: 0 12px 26px; /* 左右チラ見え + ドット分 */
-  }
-
-  /* 既存の padding を“無効化”する */
-  .gallery-swiper .swiper-wrapper{
-    padding: 0;
-  }
-
-  /* ドット位置の微調整 */
-  .gallery-swiper .swiper-pagination{
-    bottom: 6px;
-  }
-}
-
-/* =========================
-   PC：Swiper未初期化でも「4列グリッド」で見せる保険
-   （PCで1枚だけデカく見える問題の根本対策）
-========================= */
-@media (min-width: 601px) {
-  /* Swiperのoverflow:hiddenで1枚に見えるのを防ぐ */
-  .gallery-swiper {
-    overflow: visible;
-  }
-
-  /* Swiperが初期化されてない時（= PC想定）は grid に強制 */
-  .gallery-swiper:not(.swiper-initialized) .swiper-wrapper {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    transform: none !important; /* Swiper系のtransformが残っても無効化 */
-  }
-
-  .gallery-swiper:not(.swiper-initialized) .swiper-slide {
-    width: auto !important;
-    flex: unset !important;
-  }
-
-  /* PCでも画像を枠にフィットさせる（デカ表示予防） */
-  .gallery-swiper .gallery-item img {
-    width: 100%;
-    height: 300px;       /* 好みで 160〜220 くらいで調整OK */
-    object-fit: cover;
-    display: block;
-  }
-}
-
-/* =========================
-   Gallery PC：幅を広げる（最終上書き）
-========================= */
-@media (min-width: 601px) {
-
-  /* 親の幅制限（ここが1000pxで止まってた） */
-  .gallery .gallery-inner{
-    max-width: 1500px;   /* 例：1200〜1400で好み */
-  }
-
-  /* Swiper自体の幅制限（900pxが残ってた） */
-  .gallery-swiper{
-    max-width: 1200px;   /* 親と合わせる */
-    width: 100%;
-  }
-
-  /* 4枚の“縦サイズ”もここで確定（180pxを上書き） */
-  .gallery-swiper .gallery-item img{
-    height: 260px;       /* 例：220〜320くらい */
-    object-fit: cover;
-  }
-}
-
-/* ===== FIX: Gallery(SP) 横幅がはみ出してページが横スクロールする問題 ===== */
-@media (max-width: 600px) {
-  /* セクションごと横幅を増やさない（保険） */
-  .gallery {
-    overflow-x: hidden;
-  }
-
-  /* Swiperのはみ出しでscrollWidthが増えるのを止める（根本） */
-  .gallery-swiper {
-    overflow: hidden;          /* ← visible をやめる */
-    width: 100%;
-    padding: 0 12px 26px;      /* 左右チラ見せ用余白 + ドット分は維持 */
-  }
-}
-
 /* ====== ヒーロー：スマホ最適化 ====== */
 @media (max-width: 768px) {
   .hero{
@@ -1905,6 +1739,11 @@ nav {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* News：0件なら非表示（JSが成功したら解除） */
+.news--hidden{
+  display: none;
+}
+
 /* レスポンシブ */
 @media (max-width: 900px){
   .news-card{
@@ -1935,5 +1774,163 @@ nav {
 
   .news-title{
     font-size: 17px;
+  }
+}
+
+/* =========================
+   Gallery：Swiper（SPはカルーセル / PCは4列）
+========================= */
+
+/* PC：4枚横並び（動きなし） */
+.gallery-swiper {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+@media (min-width: 601px) {
+  .gallery-swiper .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .gallery-swiper .swiper-slide {
+    width: auto !important;
+  }
+
+  .gallery-swiper .swiper-pagination {
+    display: none;
+  }
+}
+
+/* Swiperでも.gallery-itemの見た目を維持（共通） */
+.gallery-swiper .gallery-item{
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s;
+}
+
+.gallery-swiper .gallery-item:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* SP：画像高さを統一 */
+@media (max-width: 600px){
+  .gallery-swiper .gallery-item img{
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* =========================
+   Gallery（SP最終確定）
+   - ページは横スクしない
+   - カルーセルは左右チラ見せ
+========================= */
+@media (max-width: 600px) {
+  .gallery {
+    overflow-x: hidden;
+  }
+
+  .gallery-swiper {
+    overflow: visible;
+    width: 100%;
+    padding: 0 12px 26px;
+  }
+
+  .gallery-swiper .swiper-wrapper {
+    padding: 0;
+  }
+
+  .gallery-swiper .swiper-pagination {
+    bottom: 6px;
+  }
+}
+
+/* ===== Gallery：PC幅を広げる（最終） ===== */
+@media (min-width: 601px){
+  .gallery .gallery-inner{
+    max-width: 1200px; /* 1100〜1400で好み */
+  }
+
+  .gallery-swiper{
+    max-width: 1200px; /* innerと合わせる */
+    width: 100%;
+  }
+}
+
+/* =========================================
+   Gallery：PCはSwiperが動いてても“4列固定”にする最終上書き
+   （= PCで1枚だけ表示される事故を強制的に止める）
+========================================= */
+@media (min-width: 601px){
+
+  /* PCではSwiperの動きを実質無効化してグリッドで見せる */
+  .gallery-swiper{
+    overflow: visible;
+  }
+
+  /* Swiperが初期化済みでも wrapper を grid に強制 */
+  .gallery-swiper .swiper-wrapper{
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    transform: none !important;   /* translate3d を殺す */
+  }
+
+  /* slideの幅指定を殺す */
+  .gallery-swiper .swiper-slide{
+    width: auto !important;
+    flex: unset !important;
+  }
+
+  /* ドットはPCで消す */
+  .gallery-swiper .swiper-pagination{
+    display: none !important;
+  }
+
+  /* 画像の高さをPC用に固定（好みで調整OK） */
+  .gallery-swiper .gallery-item img{
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* =========================================
+   Gallery SP：左右チラ見せを「確実に」出す最終上書き
+   （overflow/padding だけでは出ないので、slide幅を絞る）
+========================================= */
+@media (max-width: 600px) {
+  /* 横スク防止（ページは止める） */
+  .gallery {
+    overflow-x: hidden;
+  }
+  
+  /* Swiperはチラ見せのため visible */
+  .gallery-swiper {
+    overflow: visible;
+    width: 100%;
+    padding: 0 12px 26px; /* 左右チラ見せ + ドット */
+  }
+
+  /* ★これが核心：スライドを100%にしない */
+  .gallery-swiper .swiper-slide {
+    width: 86% !important;     /* 82〜90%で好み調整 */
+  }
+
+  /* 余計なズレ防止 */
+  .gallery-swiper .swiper-wrapper {
+    padding: 0;
+  }
+
+  .gallery-swiper .swiper-pagination {
+    bottom: 6px;
   }
 }

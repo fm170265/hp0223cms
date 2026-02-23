@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ギターコース | Lessons room 実のなる木</title>
 
+  <!-- ===== Basic SEO ===== -->
+  <meta name="description"
+    content="岐阜市の習い事教室「Lessons room 実のなる木」ギターコース。9:00〜23:00対応で通いやすいチケット制。マンツーマンで未経験〜上級まで個別カリキュラム。教材費・機材レンタル無料です。">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://YOUR_DOMAIN/guitar.html">
+
+  <!-- ===== OGP (SNS表示) ===== -->
+  <meta property="og:site_name" content="Lessons room 実のなる木">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ギターコース | Lessons room 実のなる木">
+  <meta property="og:description" content="9:00〜23:00対応、チケット制で通いやすい。マンツーマンで未経験〜上級まで、一人ひとりに合わせてレッスンします。">
+  <meta property="og:url" content="https://YOUR_DOMAIN/guitar.html">
+  <meta property="og:image" content="https://YOUR_DOMAIN/images/ogp/ogp-home.jpg">
+
+  <!-- ===== Twitter ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ===== UI / Icon ===== -->
+  <meta name="theme-color" content="#2f6b4f">
+
+  <!-- 追加する2行 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- 既存の世界観（style.css）はそのまま利用：変更しない -->
@@ -15,363 +40,429 @@
 
 <body class="course-page guitar-page">
 
-<nav>
-  <div class="nav-container">
-    <a href="index.html#top" class="nav-logo" aria-label="トップへ戻る">
-      <img src="logo_header.webp" alt="Lessons room 実のなる木">
-    </a>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html#top" class="nav-logo" aria-label="トップへ戻る">
+        <img src="logo_header.webp" alt="Lessons room 実のなる木">
+      </a>
 
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニューを開閉">
-    <label for="nav-toggle" class="nav-burger" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニューを開閉">
+      <label for="nav-toggle" class="nav-burger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-    <ul class="nav-menu">
-      <li><a href="index.html#features">選ばれる理由</a></li>
-      <li><a href="index.html#courses">コース一覧</a></li>
-      <li><a href="index.html#teachers">講師紹介</a></li>
-      <li><a href="index.html#access">アクセス</a></li>
-      <li><a href="index.html#line" class="nav-cta">LINEで相談</a></li>
-    </ul>
+      <ul class="nav-menu">
+        <li><a href="index.html#features">選ばれる理由</a></li>
+        <li><a href="index.html#courses">コース一覧</a></li>
+        <li><a href="index.html#teachers">講師紹介</a></li>
+        <li><a href="index.html#access">アクセス</a></li>
+        <li>
+          <a class="nav-cta" href="https://lin.ee/QaF0yZy" target="_blank" rel="noopener noreferrer">
+            LINEで相談
+          </a>
+        </li>
+      </ul>
 
-    <ul class="nav-drawer">
-      <li><a href="index.html#features">選ばれる理由</a></li>
-      <li><a href="index.html#courses">コース一覧</a></li>
-      <li><a href="index.html#teachers">講師紹介</a></li>
-      <li><a href="index.html#access">アクセス</a></li>
-      <li><a href="index.html#line" class="nav-cta">LINEで相談</a></li>
-    </ul>
-  </div>
-</nav>
+      <ul class="nav-drawer">
+        <li><a href="index.html#features">選ばれる理由</a></li>
+        <li><a href="index.html#courses">コース一覧</a></li>
+        <li><a href="index.html#teachers">講師紹介</a></li>
+        <li><a href="index.html#access">アクセス</a></li>
+        <li>
+          <a class="nav-cta" href="https://lin.ee/QaF0yZy" target="_blank" rel="noopener noreferrer">
+            LINEで相談
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-<script>
-  (function () {
-    const toggle = document.getElementById('nav-toggle');
-    const drawer = document.querySelector('.nav-drawer');
-    const burger = document.querySelector('.nav-burger');
+  <script>
+    (function () {
+      const toggle = document.getElementById('nav-toggle');
+      const drawer = document.querySelector('.nav-drawer');
+      const burger = document.querySelector('.nav-burger');
 
-    if (!toggle || !drawer || !burger) return;
+      if (!toggle || !drawer || !burger) return;
 
-    burger.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      toggle.checked = !toggle.checked;
-    });
+      burger.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggle.checked = !toggle.checked;
+      });
 
-    drawer.addEventListener('click', function (e) {
-      const link = e.target.closest('a');
-      if (!link) return;
-      toggle.checked = false;
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!toggle.checked) return;
-
-      const clickedInsideDrawer = drawer.contains(e.target);
-      const clickedBurger = burger.contains(e.target);
-
-      if (!clickedInsideDrawer && !clickedBurger) {
+      drawer.addEventListener('click', function (e) {
+        const link = e.target.closest('a');
+        if (!link) return;
         toggle.checked = false;
-      }
-    });
+      });
 
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 900) {
-        toggle.checked = false;
-      }
-    });
-  })();
-</script>
+      document.addEventListener('click', function (e) {
+        if (!toggle.checked) return;
 
-<main class="course-main">
+        const clickedInsideDrawer = drawer.contains(e.target);
+        const clickedBurger = burger.contains(e.target);
 
-  <!-- ヒーロー -->
-  <header class="course-hero" id="top">
-    <div class="course-container course-hero-inner reveal">
+        if (!clickedInsideDrawer && !clickedBurger) {
+          toggle.checked = false;
+        }
+      });
 
-      <div class="course-hero-text">
-        <p class="section-label">Guitar Course</p>
-        <h1 class="course-hero-title">ギターコース</h1>
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 900) {
+          toggle.checked = false;
+        }
+      });
+    })();
+  </script>
 
-        <div class="course-hero-prose">
-          <p>社会人・学生・主婦の方など、忙しい毎日の中でも無理なく続けられます。
-            9:00〜23:00まで対応。チケット制なので予定に合わせて通えます。
-            レッスンは講師とマンツーマン。エレキギター、アコースティックギターの他ベースも対応。
-            未経験から上級者まで生徒さん一人一人に合わせた完全個人別のカリキュラムで確実に上達出来ます。
-            教材費や機材レンタルはすべて無料。あなたのペースで、はじめてみませんか？</p>
+  <main class="course-main">
+
+    <!-- ヒーロー -->
+    <header class="course-hero" id="top">
+      <div class="course-container course-hero-inner reveal">
+
+        <div class="course-hero-text">
+          <p class="section-label">Guitar Course</p>
+          <h1 class="course-hero-title">ギターコース</h1>
+
+          <div class="course-hero-prose">
+            <p>社会人・学生・主婦の方など、忙しい毎日の中でも無理なく続けられます。
+              9:00〜23:00まで対応。チケット制なので予定に合わせて通えます。
+              レッスンは講師とマンツーマン。エレキギター、アコースティックギターの他ベースも対応。
+              未経験から上級者まで生徒さん一人一人に合わせた完全個人別のカリキュラムで確実に上達出来ます。
+              教材費や機材レンタルはすべて無料。あなたのペースで、はじめてみませんか？</p>
+          </div>
+        </div>
+
+        <div class="course-hero-media" aria-label="ギターコースのイメージ">
+          <figure class="hero-figure">
+            <img src="guitar_course.png" alt="ギターコースのイメージ" class="hero-image">
+          </figure>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- 料金・時間（チケット制） -->
+    <section class="course-section course-section-alt" id="price">
+      <div class="course-container reveal">
+        <div class="course-section-header">
+          <p class="section-label">Overview</p>
+          <h2 class="section-title">料金・時間</h2>
+        </div>
+
+        <!-- PC/タブレット：比較テーブル -->
+        <div class="course-table-wrap course-only-desktop" role="region" aria-label="料金・時間の表" tabindex="0">
+          <table class="course-table">
+            <thead>
+              <tr>
+                <th class="course-table-corner">項目</th>
+                <th class="course-table-col">個人（マンツーマン）</th>
+                <th class="course-table-col">ペア（2名）</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th class="course-table-rowhead">レッスン料金</th>
+                <td>
+                  <div class="cell-main">チケット制：30分 2,000円</div>
+                  <div class="cell-note">※月謝制ではありません。都合の良いタイミングで通えます。</div>
+                </td>
+                <td>
+                  <div class="cell-main">チケット制：30分 3,000円</div>
+                  <div class="cell-note">※ペアレッスンをご希望の方はご相談ください。</div>
+                </td>
+              </tr>
+
+              <!-- ★②：ここを改善 -->
+              <tr>
+                <th class="course-table-rowhead">回数券</th>
+                <td>
+                  <div class="cell-main">回数券（8回）：15,000円</div>
+                  <div class="cell-body">まとめて購入すると、1,000円お得になります</div>
+                </td>
+                <td>
+                  <div class="cell-main">回数券（7回）：20,000円</div>
+                  <div class="cell-body">まとめて購入すると、1,000円お得になります</div>
+                </td>
+              </tr>
+
+              <tr>
+                <th class="course-table-rowhead">レッスン時間</th>
+                <td>
+                  <div class="cell-main">9:00〜23:00</div>
+                  <div class="cell-note">※ご都合に合わせて時間を調整できます。詳細はお問い合わせください。</div>
+                </td>
+                <td>
+                  <div class="cell-main">9:00〜23:00</div>
+                  <div class="cell-note">※ご都合に合わせて時間を調整できます。詳細はお問い合わせください。</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- スマホ：縦カード（個人 / ペア） -->
+        <div class="course-overview-mobile course-only-mobile" aria-label="料金・時間（スマホ表示）">
+
+          <article class="overview-card">
+            <h3 class="overview-title">個人（マンツーマン）</h3>
+            <dl class="overview-dl">
+              <div class="overview-row">
+                <dt>レッスン料金</dt>
+                <dd>
+                  <div class="cell-main">チケット制：30分 2,000円</div>
+                  <div class="cell-note">※月謝制ではありません。都合の良いタイミングで通えます。</div>
+                </dd>
+              </div>
+
+              <!-- ★②：ここを改善 -->
+              <div class="overview-row">
+                <dt>回数券</dt>
+                <dd>
+                  <div class="cell-main">回数券（8回）：15,000円</div>
+                  <div class="cell-body">まとめて購入すると、1,000円お得になります</div>
+                </dd>
+              </div>
+
+              <div class="overview-row">
+                <dt>レッスン時間</dt>
+                <dd>
+                  <div class="cell-main">9:00〜23:00</div>
+                  <div class="cell-note">※ご都合に合わせて時間を調整できます。詳細はお問い合わせください。</div>
+                </dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="overview-card">
+            <h3 class="overview-title">ペア（2名）</h3>
+            <dl class="overview-dl">
+              <div class="overview-row">
+                <dt>レッスン料金</dt>
+                <dd>
+                  <div class="cell-main">チケット制：30分 3,000円</div>
+                  <div class="cell-note">※ペアレッスンをご希望の方はご相談ください。</div>
+                </dd>
+              </div>
+
+              <!-- ★②：ここを改善 -->
+              <div class="overview-row">
+                <dt>回数券</dt>
+                <dd>
+                  <div class="cell-main">回数券（7回）：20,000円</div>
+                  <div class="cell-body">まとめて購入すると、1,000円お得になります</div>
+                </dd>
+              </div>
+
+              <div class="overview-row">
+                <dt>レッスン時間</dt>
+                <dd>
+                  <div class="cell-main">9:00〜23:00</div>
+                  <div class="cell-note">※ご都合に合わせて時間を調整できます。詳細はお問い合わせください。</div>
+                </dd>
+              </div>
+            </dl>
+          </article>
+
         </div>
       </div>
+    </section>
 
-      <div class="course-hero-media" aria-label="ギターコースのイメージ">
-        <figure class="hero-figure">
-          <img src="guitar_course.png" alt="ギターコースのイメージ" class="hero-image">
-        </figure>
-      </div>
+    <!-- 相場比較表 -->
+    <section class="course-section" id="compare">
+      <div class="course-container reveal">
+        <div class="course-section-header">
+          <p class="section-label">Comparison</p>
+          <h2 class="section-title">他教室との相場比較</h2>
+        </div>
 
-    </div>
-  </header>
+        <!-- ★ 外枠（フェード固定用） -->
+        <div class="course-table-frame">
+          <!-- ★ 内側（横スクロール担当） -->
+          <div class="course-table-wrap" role="region" aria-label="他教室との相場比較表（横にスクロールできます）" tabindex="0">
+            <table class="course-table course-table--compare">
+              <thead>
+                <tr>
+                  <th class="course-table-corner">項目</th>
+                  <th class="course-table-col">当教室</th>
+                  <th class="course-table-col">他教室相場</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th class="course-table-rowhead">初期費用 (入会金等)</th>
+                  <td>
+                    <div class="cell-main">0円 (一切かかりません)</div>
+                  </td>
+                  <td>
+                    <div class="cell-main">別途必要 (数千円〜)</div>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="course-table-rowhead">レッスン料 (30分)</th>
+                  <td>
+                    <div class="cell-main">2,000円</div>
+                  </td>
+                  <td>
+                    <div class="cell-main">2,500円〜4,000円</div>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="course-table-rowhead">月謝の縛り</th>
+                  <td>
+                    <div class="cell-main">なし (都度払いで安心)</div>
+                  </td>
+                  <td>
+                    <div class="cell-main">あり (毎月固定)</div>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="course-table-rowhead">教材費</th>
+                  <td>
+                    <div class="cell-main">すべて無料</div>
+                  </td>
+                  <td>
+                    <div class="cell-main">別途必要 (数千円〜)</div>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="course-table-rowhead">振替の可否</th>
+                  <td>
+                    <div class="cell-main">◯ 柔軟に対応</div>
+                  </td>
+                  <td>
+                    <div class="cell-main">△ 不可・制限あり</div>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="course-table-rowhead">機材レンタル</th>
+                  <td>
+                    <div class="cell-main">◯ 無料</div>
+                  </td>
+                  <td>
+                    <div class="cell-main">△ 有料レンタル</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-  <!-- 料金・時間（チケット制） -->
-  <section class="course-section course-section-alt" id="price">
-    <div class="course-container reveal">
-      <div class="course-section-header">
-        <p class="section-label">Overview</p>
-        <h2 class="section-title">料金・時間</h2>
-      </div>
-
-      <!-- PC/タブレット：比較テーブル -->
-      <div class="course-table-wrap course-only-desktop" role="region" aria-label="料金・時間の表" tabindex="0">
-        <table class="course-table">
-          <thead>
-            <tr>
-              <th class="course-table-corner">項目</th>
-              <th class="course-table-col">個人（マンツーマン）</th>
-              <th class="course-table-col">ペア（2名）</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <th class="course-table-rowhead">レッスン料金</th>
-              <td>
-                <div class="cell-main">チケット制：30分 2,000円</div>
-                <div class="cell-note">※月謝制ではありません。都合の良いタイミングで通えます。</div>
-              </td>
-              <td>
-                <div class="cell-main">チケット制：30分 3,000円</div>
-                <div class="cell-note">※ペアレッスンをご希望の方はご相談ください。</div>
-              </td>
-            </tr>
-
-            <!-- ★②：ここを改善 -->
-            <tr>
-              <th class="course-table-rowhead">回数券</th>
-              <td>
-                <div class="cell-main">回数券（8回）：15,000円</div>
-                <div class="cell-body">まとめて購入すると、1,000円お得になります</div>
-              </td>
-              <td>
-                <div class="cell-main">回数券（7回）：20,000円</div>
-                <div class="cell-body">まとめて購入すると、1,000円お得になります</div>
-              </td>
-            </tr>
-
-            <tr>
-              <th class="course-table-rowhead">レッスン時間</th>
-              <td>
-                <div class="cell-main">9:00〜23:00</div>
-                <div class="cell-note">※ご都合に合わせて時間を調整できます。詳細はお問い合わせください。</div>
-              </td>
-              <td>
-                <div class="cell-main">9:00〜23:00</div>
-                <div class="cell-note">※ご都合に合わせて時間を調整できます。詳細はお問い合わせください。</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- スマホ：縦カード（個人 / ペア） -->
-      <div class="course-overview-mobile course-only-mobile" aria-label="料金・時間（スマホ表示）">
-
-        <article class="overview-card">
-          <h3 class="overview-title">個人（マンツーマン）</h3>
-          <dl class="overview-dl">
-            <div class="overview-row">
-              <dt>レッスン料金</dt>
-              <dd>
-                <div class="cell-main">チケット制：30分 2,000円</div>
-                <div class="cell-note">※月謝制ではありません。都合の良いタイミングで通えます。</div>
-              </dd>
-            </div>
-
-            <!-- ★②：ここを改善 -->
-            <div class="overview-row">
-              <dt>回数券</dt>
-              <dd>
-                <div class="cell-main">回数券（8回）：15,000円</div>
-                <div class="cell-body">まとめて購入すると、1,000円お得になります</div>
-              </dd>
-            </div>
-
-            <div class="overview-row">
-              <dt>レッスン時間</dt>
-              <dd>
-                <div class="cell-main">9:00〜23:00</div>
-                <div class="cell-note">※ご都合に合わせて時間を調整できます。詳細はお問い合わせください。</div>
-              </dd>
-            </div>
-          </dl>
-        </article>
-
-        <article class="overview-card">
-          <h3 class="overview-title">ペア（2名）</h3>
-          <dl class="overview-dl">
-            <div class="overview-row">
-              <dt>レッスン料金</dt>
-              <dd>
-                <div class="cell-main">チケット制：30分 3,000円</div>
-                <div class="cell-note">※ペアレッスンをご希望の方はご相談ください。</div>
-              </dd>
-            </div>
-
-            <!-- ★②：ここを改善 -->
-            <div class="overview-row">
-              <dt>回数券</dt>
-              <dd>
-                <div class="cell-main">回数券（7回）：20,000円</div>
-                <div class="cell-body">まとめて購入すると、1,000円お得になります</div>
-              </dd>
-            </div>
-
-            <div class="overview-row">
-              <dt>レッスン時間</dt>
-              <dd>
-                <div class="cell-main">9:00〜23:00</div>
-                <div class="cell-note">※ご都合に合わせて時間を調整できます。詳細はお問い合わせください。</div>
-              </dd>
-            </div>
-          </dl>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
- <!-- 相場比較表 -->
-<section class="course-section" id="compare">
-  <div class="course-container reveal">
-    <div class="course-section-header">
-      <p class="section-label">Comparison</p>
-      <h2 class="section-title">他教室との相場比較</h2>
-    </div>
-
-    <!-- ★ 外枠（フェード固定用） -->
-    <div class="course-table-frame">
-      <!-- ★ 内側（横スクロール担当） -->
-      <div
-        class="course-table-wrap"
-        role="region"
-        aria-label="他教室との相場比較表（横にスクロールできます）"
-        tabindex="0"
-      >
-        <table class="course-table course-table--compare">
-          <thead>
-            <tr>
-              <th class="course-table-corner">項目</th>
-              <th class="course-table-col">当教室</th>
-              <th class="course-table-col">他教室相場</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th class="course-table-rowhead">初期費用 (入会金等)</th>
-              <td><div class="cell-main">0円 (一切かかりません)</div></td>
-              <td><div class="cell-main">別途必要 (数千円〜)</div></td>
-            </tr>
-            <tr>
-              <th class="course-table-rowhead">レッスン料 (30分)</th>
-              <td><div class="cell-main">2,000円</div></td>
-              <td><div class="cell-main">2,500円〜4,000円</div></td>
-            </tr>
-            <tr>
-              <th class="course-table-rowhead">月謝の縛り</th>
-              <td><div class="cell-main">なし (都度払いで安心)</div></td>
-              <td><div class="cell-main">あり (毎月固定)</div></td>
-            </tr>
-            <tr>
-              <th class="course-table-rowhead">教材費</th>
-              <td><div class="cell-main">すべて無料</div></td>
-              <td><div class="cell-main">別途必要 (数千円〜)</div></td>
-            </tr>
-            <tr>
-              <th class="course-table-rowhead">振替の可否</th>
-              <td><div class="cell-main">◯ 柔軟に対応</div></td>
-              <td><div class="cell-main">△ 不可・制限あり</div></td>
-            </tr>
-            <tr>
-              <th class="course-table-rowhead">機材レンタル</th>
-              <td><div class="cell-main">◯ 無料</div></td>
-              <td><div class="cell-main">△ 有料レンタル</div></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <p class="compare-note">
-      ※上記は一般的な傾向です。詳細は教室や地域により異なる場合があります。
-    </p>
-  </div>
-</section>
-
-
-  <!-- 下部CTA（ピアノと完全同型で流用） -->
-  <section class="course-cta">
-    <div class="course-container course-cta-inner reveal">
-      <div class="course-cta-text">
-        <p class="section-label">TRIAL</p>
-        <h2 class="course-cta-title">
-          まずはLINEで<br>
-          相談してみませんか？</h2>
-        <p class="course-cta-lead">
-          無料体験レッスンのことや<br>
-          お子さま・大人の通い方など、<br>
-          気になることがあれば<br>
-          何でもご相談ください。
+        <p class="compare-note">
+          ※上記は一般的な傾向です。詳細は教室や地域により異なる場合があります。
         </p>
       </div>
-      <div class="course-cta-actions">
-        <a href="index.html#line" class="btn-primary">LINEで相談</a>
-        <a href="index.html#courses" class="btn-secondary">コース一覧に戻る</a>
+    </section>
+
+
+    <!-- 下部CTA（ピアノと完全同型で流用） -->
+    <section class="course-cta">
+      <div class="course-container course-cta-inner reveal">
+        <div class="course-cta-text">
+          <p class="section-label">TRIAL</p>
+          <h2 class="course-cta-title">
+            まずはLINEで<br>
+            相談してみませんか？</h2>
+          <p class="course-cta-lead">
+            無料体験レッスンのことや<br>
+            お子さま・大人の通い方など、<br>
+            気になることがあれば<br>
+            何でもご相談ください。
+          </p>
+        </div>
+        <div class="course-cta-actions">
+          <a class="btn-primary" href="https://lin.ee/QaF0yZy" target="_blank" rel="noopener noreferrer">
+            LINEで相談
+          </a>
+          <a href="index.html#courses" class="btn-secondary">コース一覧に戻る</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</main>
+  </main>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-main">
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-main">
 
-      <div class="footer-brand">
-        <h3>Lessons room 実のなる木</h3>
-        <p>
-          岐阜市南蝉の小さな習い事教室。<br>
-          子どもも大人も、安心して通える場所です。
+        <div class="footer-brand">
+          <h3>Lessons room 実のなる木</h3>
+          <p>
+            岐阜市南蝉の小さな習い事教室。<br>
+            子どもも大人も、安心して通える場所です。
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h4>教室について</h4>
+            <ul>
+              <li><a href="index.html#teachers">講師紹介</a></li>
+              <li><a href="index.html#access">アクセス</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>お問い合わせ</h4>
+            <ul>
+              <li>
+                <a href="https://lin.ee/QaF0yZy" target="_blank" rel="noopener noreferrer">
+                  LINEで相談
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          © 2025 Lessons room 実のなる木. All rights reserved.
         </p>
       </div>
-
-      <div class="footer-links">
-        <div>
-          <h4>教室について</h4>
-          <ul>
-            <li><a href="index.html#teachers">講師紹介</a></li>
-            <li><a href="index.html#access">アクセス</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>お問い合わせ</h4>
-          <ul>
-            <li><a href="index.html#line">LINEで相談</a></li>
-          </ul>
-        </div>
-      </div>
-
     </div>
+  </footer>
 
-    <div class="footer-bottom">
-      <p class="copyright">
-        © 2025 Lessons room 実のなる木. All rights reserved.
-      </p>
-    </div>
-  </div>
-</footer>
+  <script src="reveal.js" defer></script>
 
- <script src="reveal.js" defer></script>
- 
+
+
+
+  <script>
+    (function () {
+      const frame = document.querySelector("#compare .course-table-frame");
+      const wrap = document.querySelector("#compare .course-table-frame .course-table-wrap");
+      if (!frame || !wrap) return;
+
+      function updateFade() {
+        // “右端まで到達”判定（誤差吸収で +1）
+        const atEnd = wrap.scrollLeft + wrap.clientWidth >= wrap.scrollWidth - 1;
+
+        if (atEnd) {
+          frame.classList.add("is-scroll-end");
+        } else {
+          frame.classList.remove("is-scroll-end");
+        }
+      }
+
+      // 初期状態（読み込み直後）
+      updateFade();
+
+      // スクロール中に更新
+      wrap.addEventListener("scroll", updateFade, { passive: true });
+
+      // 画面回転・リサイズでも再判定
+      window.addEventListener("resize", updateFade);
+    })();
+  </script>
+
+
 </body>
+
 </html>
