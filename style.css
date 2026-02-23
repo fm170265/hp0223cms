@@ -1934,3 +1934,123 @@ nav {
     bottom: 6px;
   }
 }
+
+
+/* =========================
+   HERO (PC only): Photo + soft beige/green veil (ref-like)
+   - SPは現状維持
+   - 高さ：95vh
+   - 文字：白 + 薄いshadow
+   - CTA：コース一覧だけオレンジ
+   ========================= */
+@media (min-width: 901px) {
+
+  /* ヒーロー本体（PCだけ写真ヒーロー化） */
+  .hero{
+    min-height: 95vh;         /* ←確定 */
+    padding-top: 140px;       /* ヘッダー固定分 + 余白（詰まり回避） */
+    padding-bottom: 92px;
+    justify-content: center;
+    text-align: center;
+
+    background: none;         /* 元のグラデ無効化 */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* PCではヒーロー内ロゴは出さない */
+  .hero-logo{ display: none; }
+
+  /* 背景写真 */
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: url("hero_pc.webp"); /* ←写真ファイル名 */
+    background-size: cover;
+    background-position: 50% 30%;          /* ←写真位置（まずは中央） */
+    transform: scale(1.02);
+    z-index: 0;
+
+    /* “暗くしない”のに読みやすくするコツ：彩度とコントラストを少し落とす */
+    filter: saturate(1.05) contrast(0.92) brightness(1.02) blur(1.4px);
+  }
+
+  /* 色膜（参考画像とほぼ同じ：黄みベージュ主 + ほんのり緑） */
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index: 1;
+
+    /* 黒暗幕ではなく「色で包む」 */
+    background:
+    linear-gradient(180deg,
+      rgba(220, 215, 195, 0.38) 0%,
+      rgba(220, 215, 195, 0.42) 45%,
+      rgba(220, 215, 195, 0.28) 100%);
+  }
+
+  /* 中身を前面へ */
+  .hero > *{
+    position: relative;
+    z-index: 2;
+  }
+
+  /* 文字：白 + 薄いシャドウ */
+  .hero-tagline,
+  .hero-location,
+  .hero-description{
+    color: #fff;
+    text-shadow: 
+      0 2px 18px rgba(0,0,0,0.40),
+      0 4px 20px rgba(0,0,0,0.30);
+  }
+
+  /* キャッチは2行同サイズ（指定どおり） */
+  .hero-tagline{
+    font-size: 52px;     /* 必要なら 48〜56 */
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    margin-bottom: 18px;
+  }
+
+  /* サブ（場所説明） */
+  .hero-location{
+    color: rgba(255,255,255,0.92);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+  }
+
+  /* 説明文：今回は非表示（あなたが前に display:none にしてた方針を踏襲） */
+  .hero-description{
+    display: none;
+  }
+
+  /* CTA間隔 */
+  .hero-buttons{
+    gap: 14px;
+  }
+
+  /* LINEで相談（主CTA）：既存の緑をそのまま活かす */
+  .hero .btn-primary{
+    box-shadow: 0 10px 26px rgba(0,0,0,0.14);
+  }
+
+  /* コース一覧だけオレンジ（副CTA） */
+  .hero .btn-secondary{
+    background: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #fff;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+  }
+
+  .hero .btn-secondary:hover{
+    background: #d9834d;
+    border-color: #d9834d;
+    transform: translateY(-2px);
+  }
+}
