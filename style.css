@@ -261,8 +261,7 @@ nav {
 }
 
 .hero-logo {
-  max-width: 420px;
-  width: 80%;
+  width: clamp(220px, 80vw, 420px);
   margin-bottom: 20px;
 }
 
@@ -1585,10 +1584,6 @@ nav {
     justify-content: flex-start; /* 中央寄せをやめて上から積む */
   }
 
-  .hero-logo{
-    max-width: 260px;          /* 420→縮める（効き目大） */
-    margin-bottom: 16px;
-  }
 
   .hero-tagline{
     font-size: 24px;           /* 28→少しだけ */
@@ -1620,13 +1615,6 @@ nav {
 
 /* ===== HERO：SPはロゴ主役（A案） ===== */
 @media (max-width: 600px){
-
-  /* ロゴを主役に戻す */
-  .hero-logo{
-    max-width: 300px;   /* 260 → 300 */
-    width: 86%;
-    margin-bottom: 14px;
-  }
 
   /* キャッチは強すぎないサイズに */
   .hero-tagline{
